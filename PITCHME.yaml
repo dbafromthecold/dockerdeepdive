@@ -1,0 +1,38 @@
+#
+# GitPitch Slideshow Custom Settings
+#
+# For details, visit the GitPitch Wiki:
+# https://github.com/gitpitch/gitpitch/wiki/Slideshow-Settings
+#
+
+#
+# Theme setting options:
+# black, moon, night, beige, sky, white, simple
+#
+theme : simple
+# theme-override : assets/css/PITCHME.css
+highlight : mono-blue
+#
+# Layout setting options:
+# center, center-left, center-right, top, top-left, top-right
+#
+layout : center-left
+
+#
+# Transition setting options:
+# convex, concave, default, fade, none, slide, zoom
+#
+transition : slide
+
+footnote : "SQL Server & Kubernetes - dbafromthecold"
+
+#
+# Additional sample quickstart setting options:
+#
+# background : assets/images/sunset.jpg
+# background-size : 100% 100%
+# background-position : center
+# background-opacity : 60
+#
+# highlight : atom-one-dark
+#

@@ -1,0 +1,15 @@
+Docker Deep Dive
+
+
+This session will go deeper into container architecture and explore the various different options available
+
+Topics covered: -
+
+Container networking
+Options for persisting data
+Creating your own container registry
+Docker compose
+Non-root containers
+
+This session is aimed at anyone who has experience with running SQL Server in a container and who
+wants to learn more about the platform
