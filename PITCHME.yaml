@@ -9,7 +9,7 @@
 # Theme setting options:
 # black, moon, night, beige, sky, white, simple
 #
-theme : simple
+theme : moon
 # theme-override : assets/css/PITCHME.css
 highlight : mono-blue
 #
