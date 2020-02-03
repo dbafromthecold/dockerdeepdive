@@ -1,2 +1,11 @@
 # Docker Deep Dive
-Slides and code for my Docker Deep Dive presentation
+
+https://gitpitch.com/dbafromthecold/DockerDeepDive
+
+This session covers
+- container isolation
+- container networking
+- storing custom container images
+- persisting data for SQL Server
+- Docker compose
+- Non-root containers
