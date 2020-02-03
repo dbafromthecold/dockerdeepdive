@@ -22,15 +22,37 @@ To provide a deeper knowledge of the Docker platform
 ### Agenda
 
 @ul
-Isolation
-Networking
-Storing images
-Persisting data
-Docker Compose
-Non-root containers
+- Isolation<br>
+- Networking<br>
+- Storing images<br>
+- Persisting data<br>
+- Docker Compose<br>
+- Non-root containers<br>
 @ulend
 
 ---
+
+### Isolation
+
+---
+
+### Networking
+
+---
+
+### Registries
+
+---
+
+### Persisting data
+
+---
+
+### Docker Compose
+
+---
+
+### Non-root containers
 
 ---
 
