@@ -1,5 +1,7 @@
 # Docker Deep Dive
 
+## Session is WIP
+
 https://gitpitch.com/dbafromthecold/DockerDeepDive
 
 This session covers
