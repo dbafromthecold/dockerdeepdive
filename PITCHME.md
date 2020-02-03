@@ -58,6 +58,6 @@ To provide a deeper knowledge of the Docker platform
 
 ### Resources
 
-@size[0.8em](https://tinyurl.com/yyz8fe9x/DockerDeepDive)
+@size[0.8em](https://tinyurl.com/yyz8fe9x/DockerDeepDive)<br>
 @size[0.8em](http://tinyurl.com/y3x29t3j/summary-of-my-container-series/)
 
