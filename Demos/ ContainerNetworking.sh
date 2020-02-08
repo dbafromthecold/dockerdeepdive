@@ -25,7 +25,7 @@ mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
 
 # confirm containers are running
-docker container ls -a
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
 
 
 
@@ -122,7 +122,7 @@ mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
 
 # confirm containers are running
-docker container ls -a
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
 
 
 
