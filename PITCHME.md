@@ -42,9 +42,7 @@ bridge<br>
 host<br>
 null<br>
 
-<p align="right">
-<img src="assets/images/docker_network_ls.png" />
-</p>
+<img src="assets/images/docker_network_ls.png" style="float: right"/>
 
 ---
 
