@@ -62,12 +62,12 @@ Supports port mapping
 ### User defined networks
 
 Enables DNS resolution of container names to IP addresses<br>
-Docker provide default drivers for
--bridge network
--overlay network
--MACVLAN network
-Containers can be connected to more than one network
-Containers can be connected/disconnected from networks without restarting. 
+Docker provide default drivers for:-<br>
+-bridge network<br>
+-overlay network<br>
+-MACVLAN network<br>
+Containers can be connected to more than one network<br>
+Containers can be connected/disconnected from networks without restarting<br>
 
 ---
 
