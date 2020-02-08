@@ -1,57 +1,155 @@
-# to be completed
 
-sudo apt-get update
-sudo apt-get install iputils-ping
-
+# list networks
+docker network list
 
 
-docker run -d -p 15799:1433 \
+
+# inspect the default bridge network
+docker network inspect bridge
+
+
+
+# let's run two sql containers on the default bridge network
+docker container run -d \
 --env ACCEPT_EULA=Y \
---env SA_PASSWORD=Testing1122 \
+--env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer1 \
-mcr.microsoft.com/mssql/server:2019-RC1-ubuntu
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
-docker run -d -P \
+docker container run -d \
 --env ACCEPT_EULA=Y \
---env SA_PASSWORD=Testing1122 \
+--env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer2 \
-mcr.microsoft.com/mssql/server:2019-RC1-ubuntu
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
+
+
+# confirm containers are running
+docker container ls -a
+
+
+
+# inspect the default bridge network
+docker network inspect bridge
+
+
+
+# grab the IP addresses of the containers
 docker inspect testcontainer1 --format '{{ .NetworkSettings.IPAddress }}' 
 docker inspect testcontainer2 --format '{{ .NetworkSettings.IPAddress }}' 
 
-docker exec testcontainer1 /bin/sh ifconfig
-
-docker inspect testcontainer2
 
 
-docker inspect testcontainer --format='{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}'
+# run a container on the same network with tools installed
+docker run -it dbafromthecold/dockerdeepdive:networking-tools bash
 
 
 
-docker network ls
+# ping one of the container
+ping 172.17.0.2
 
+
+
+# view container dns
+cat /etc/resolv.conf
+
+
+
+# connect to sql in another container
+mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION"
+
+
+
+# exit tools container
+exit
+
+
+
+# try and connect to SQL within one of the containers from the host
+mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION"
+
+
+
+# let's run two more containers on the default bridge network with ports mapped
+docker container run -d \
+--publish 15789:1433 \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--name testcontainer3 \
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+
+docker container run -d \
+--publish 15799:1433 \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--name testcontainer4 \
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+
+
+
+# view port mapping
+docker port testcontainer3
+
+
+
+# now connect to SQL in a container from the host
+mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT @@VERSION"
+
+
+
+# create custom bridge network
 docker network create sqlserver
 
-docker run -d -p 15789:1433 \
---network sqlserver \
+
+
+# create two new containers on the custom network
+docker container run -d \
+--network=sqlserver
+--publish 15689:1433 \
 --env ACCEPT_EULA=Y \
---env SA_PASSWORD=Testing1122 \
---name testcontainer3 \
-mcr.microsoft.com/mssql/server:2019-RC1-ubuntu
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--name testcontainer5 \
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
-
-
-docker run -d -P \
---network sqlserver \
+docker container run -d \
+--network=sqlserver
+--publish 15699:1433 \
 --env ACCEPT_EULA=Y \
---env SA_PASSWORD=Testing1122 \
---name testcontainer4 \
-mcr.microsoft.com/mssql/server:2019-RC1-ubuntu
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--name testcontainer6 \
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
-docker exec -it testcontainer3 bash
 
-apt-get update
-apt-get install iputils-ping
 
-ping testcontainer4
+# confirm containers are running
+docker container ls -a
+
+
+
+# spin up tools container on same network
+docker run -it dbafromthecold/dockerdeepdive:networking-tools bash
+
+
+
+# ping containers by name
+ping testcontainer5
+
+
+
+# view dns settings
+cat /etc/resolv.conf
+
+
+
+# pull out information from dns server
+dig testcontainer5 @127.0.0.11
+
+
+
+# exit container
+exit
+
+
+
+# clean up
+docker rm $(docker ps -aq) -f
