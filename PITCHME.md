@@ -38,6 +38,37 @@ To provide a deeper knowledge of the Docker platform
 
 ### Networking
 
+@ul
+- bridge
+- host
+- null
+@ulend
+
+<p align="center">
+<img src="assets/images/docker_network_ls.png" />
+</p>
+
+---
+
+### Bridge network
+
+Default network<br>
+Represents docker0 network in the host network stack<br>
+Containers can communicate with each other by IP address<br>
+Supports port mapping 
+
+---
+
+### User defined networks
+
+Enables DNS resolution of container names to IP addresses<br>
+Docker provide default drivers for
+-bridge network
+-overlay network
+-MACVLAN network
+Containers can be connected to more than one network
+Containers can be connected/disconnected from networks without restarting. 
+
 ---
 
 ### Registries
