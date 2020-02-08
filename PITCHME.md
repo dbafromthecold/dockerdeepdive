@@ -49,7 +49,7 @@ null<br>
 ### Bridge network
 
 Default network<br>
-Represents docker0 network in the host network stack<br>
+Represents _docker0_ network in the host network stack<br>
 Containers communicate by IP address<br>
 Supports port mapping 
 
