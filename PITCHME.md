@@ -54,7 +54,7 @@ To provide a deeper knowledge of the Docker platform
 
 Default network<br>
 Represents docker0 network in the host network stack<br>
-Containers can communicate with each other by IP address<br>
+Containers communicate by IP address<br>
 Supports port mapping 
 
 ---
@@ -63,11 +63,11 @@ Supports port mapping
 
 Enables DNS resolution of container names to IP addresses<br>
 Docker provide default drivers for:-<br>
--bridge network<br>
--overlay network<br>
--MACVLAN network<br>
-Containers can be connected to more than one network<br>
-Containers can be connected/disconnected from networks without restarting<br>
+- bridge network<br>
+- overlay network<br>
+- MACVLAN network<br>
+Can be connected to more than one network<br>
+Connect/disconnect from networks without restarting<br>
 
 ---
 
