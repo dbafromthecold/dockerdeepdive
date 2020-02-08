@@ -38,11 +38,11 @@ To provide a deeper knowledge of the Docker platform
 
 ### Networking
 
+<img src="assets/images/docker_network_ls.png" style="float: right"/>
+
 bridge<br>
 host<br>
 null<br>
-
-<img src="assets/images/docker_network_ls.png" style="float: right"/>
 
 ---
 
