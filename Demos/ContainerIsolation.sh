@@ -2,13 +2,12 @@
 
 
 # run a container
-docker container run -it \
+docker container run -d \
 --publish 15789:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer1 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8 \
-/bin/bash
+mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
 
 
 
@@ -22,14 +21,29 @@ find /sys/fs/cgroup/ -name *$CONTAINERID*
 
 
 
-# get process ID
+# get process IDs
 DIR=$(find /sys/fs/cgroup/ -name *$CONTAINERID* | head -1) && cat $DIR/tasks
 
 
 
 # view namespaces associated with process
-PROCESSID=$(cat $DIR/tasks) && sudo ls -Lil /proc/$PROCESSID/ns
+PROCESSID=$(tail -n 1 $DIR/tasks) && sudo ls -Lil /proc/$PROCESSID/ns
 
+
+
+# create a database in the SQL instance in the container
+mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase]"
+
+
+
+# run mount in the container
+docker exec testcontainer1 mount
+#echo $DIFF | grep '(?<=upperdir=)(.*)(?=diff)'
+
+
+
+# run mount on the host
+mount
 
 
 
