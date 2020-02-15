@@ -36,18 +36,6 @@ mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatab
 
 
 
-# run mount in the container
-docker exec testcontainer1 mount
-#echo $DIFF | grep '(?<=upperdir=)(.*)(?=diff)'
-
-
-
-# run mount on the host
-mount
-
-
-
-
-
-# get process ID
-ps -axf | grep $CONTAINERID -A1
+# view files on host
+DIR=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.UpperDir }}')
+sudo ls $DIR/var/opt/mssql/data
