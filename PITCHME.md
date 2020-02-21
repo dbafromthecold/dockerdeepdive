@@ -57,7 +57,7 @@ resources of the host
 
 ## Overlay file system
 
-<img src="assets/images/docker_container_layers.png"/>
+<img src="assets/images/docker_container_layers_rsz.png"/>
 
 @size[0.5em](img src https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers)
 
