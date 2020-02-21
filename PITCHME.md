@@ -24,7 +24,7 @@ To provide a deeper knowledge of the Docker platform
 @ul
 - Isolation<br>
 - Networking<br>
-- Storing images<br>
+- Container images<br>
 - Persisting data<br>
 - Docker Compose<br>
 - Non-root containers<br>
