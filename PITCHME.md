@@ -59,9 +59,11 @@ resources of the host
 
 ---
 
-## Networking
+# Networking
 
 ---
+
+## Default network drivers
 
 <img src="assets/images/docker_network_ls.png" style="float: right"/>
 
@@ -92,19 +94,19 @@ Supports port mapping
 
 ---
 
-## Registries
+# Registries
 
 ---
 
-## Persisting data
+# Persisting data
 
 ---
 
-## Docker Compose
+# Docker Compose
 
 ---
 
-## Non-root containers
+# Non-root containers
 
 ---
 
