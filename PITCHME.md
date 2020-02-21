@@ -36,14 +36,14 @@ To provide a deeper knowledge of the Docker platform
 
 ---
 
-### Namespaces
+## Namespaces
 
 Processes within the container cannot see<br>
 processes on the host or in other containers
 
 ---
 
-### Control Groups
+## Control Groups
 
 Implements resource limiting of
 - CPU
@@ -55,7 +55,7 @@ resources of the host
 
 ---
 
-### Overlay file system
+## Overlay file system
 
 ---
 
@@ -71,7 +71,7 @@ null<br>
 
 ---
 
-### Bridge network
+## Bridge network
 
 Default network<br>
 Represents _docker0_ network in the host network stack<br>
@@ -80,7 +80,7 @@ Supports port mapping
 
 ---
 
-### User defined networks
+## User defined networks
 
 @size[0.8em](Enables DNS resolution of container names to IP addresses<br>)
 @size[0.8em](Docker provide default drivers for:-<br>)
@@ -92,23 +92,23 @@ Supports port mapping
 
 ---
 
-### Registries
+## Registries
 
 ---
 
-### Persisting data
+## Persisting data
 
 ---
 
-### Docker Compose
+## Docker Compose
 
 ---
 
-### Non-root containers
+## Non-root containers
 
 ---
 
-### Resources
+## Resources
 
 @size[0.8em](https://tinyurl.com/yyz8fe9x/DockerDeepDive)<br>
 @size[0.8em](http://tinyurl.com/y3x29t3j/summary-of-my-container-series/)
