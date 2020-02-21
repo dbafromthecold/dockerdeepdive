@@ -59,7 +59,7 @@ resources of the host
 
 <img src="assets/images/docker_container_layers_rsz.png"/>
 
-@size[0.5em](img src https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers)
+@size[0.4em](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers)
 
 ---
 
