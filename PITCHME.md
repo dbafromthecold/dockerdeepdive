@@ -55,7 +55,7 @@ resources of the host
 
 ---
 
-## Overlay file system
+## Union file system
 
 <img src="assets/images/docker_container_layers.jpg"/>
 
