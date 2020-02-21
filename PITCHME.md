@@ -32,11 +32,36 @@ To provide a deeper knowledge of the Docker platform
 
 ---
 
-### Isolation
+## Isolation
 
 ---
 
-### Networking
+### Namespaces
+
+Processes within the container cannot see<br>
+processes on the host or in other containers
+
+---
+
+### Control Groups
+
+Implements resource limiting of
+- CPU
+- Memory
+- Disk IO
+
+Ensures a single container cannot consume all<br>
+resources of the host
+
+---
+
+### Overlay file system
+
+---
+
+## Networking
+
+---
 
 <img src="assets/images/docker_network_ls.png" style="float: right"/>
 
