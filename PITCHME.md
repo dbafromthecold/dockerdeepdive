@@ -63,7 +63,7 @@ resources of the host
 
 ---
 
-## Default network drivers
+# Default networks
 
 <img src="assets/images/docker_network_ls.png" style="float: right"/>
 
@@ -86,9 +86,11 @@ Supports port mapping
 
 @size[0.8em](Enables DNS resolution of container names to IP addresses<br>)
 @size[0.8em](Docker provide default drivers for:-<br>)
-@size[0.8em](- bridge network<br>)
-@size[0.8em](- overlay network<br>)
-@size[0.8em](- MACVLAN network<br>)
+@size[0.8em](- bridge)
+@size[0.8em](- host)
+@size[0.8em](- overlay)
+@size[0.8em](- MACVLAN)
+@size[0.8em](- none)
 @size[0.8em](Can be connected to more than one network<br>)
 @size[0.8em](Connect/disconnect from networks without restarting<br>)
 
