@@ -13,13 +13,13 @@
 
 ---
 
-### Session Aim
+## Session Aim
 
 To provide a deeper knowledge of the Docker platform
 
 ---
 
-### Agenda
+## Agenda
 
 @ul
 - Isolation<br>
@@ -32,7 +32,7 @@ To provide a deeper knowledge of the Docker platform
 
 ---
 
-## Isolation
+# Isolation
 
 ---
 
