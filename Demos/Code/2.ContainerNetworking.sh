@@ -56,7 +56,7 @@ cat /etc/resolv.conf
 
 
 # connect to sql in another container
-mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION"
+mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
 
 
 
@@ -66,7 +66,7 @@ exit
 
 
 # try and connect to SQL within one of the containers from the host
-mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION"
+mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
 
 
 
@@ -93,7 +93,7 @@ docker port testcontainer3
 
 
 # now connect to SQL in a container from the host
-mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT @@VERSION"
+mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
 
 
 

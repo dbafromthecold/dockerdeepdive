@@ -81,8 +81,8 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 
-# change owner to mssql
-docker exec -u 0 testcontainer2 bash -c "chown -R mssql /var/opt/sqlserver"
+# change owner to mssql - RETEST THIS - not sure that the owner needs to be changed again
+# docker exec -u 0 testcontainer2 bash -c "chown -R mssql /var/opt/sqlserver"
 
 
 
