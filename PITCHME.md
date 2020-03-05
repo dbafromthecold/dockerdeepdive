@@ -71,7 +71,7 @@ resources of the host
 
 ## Default networks
 
-<img src="assets/images/docker_network_ls.png" style="float: right"/>
+<img src="assets/images/docker_network.png" style="float: right"/>
 
 - bridge<br>
 - host<br>
@@ -91,12 +91,7 @@ Supports port mapping
 ## User defined networks
 
 @size[0.8em](Enables DNS resolution of container names to IP addresses<br>)
-@size[0.8em](Docker provide default drivers for:-<br>)
-@size[0.8em](- bridge<br>)
-@size[0.8em](- host<br>)
-@size[0.8em](- overlay<br>)
-@size[0.8em](- MACVLAN<br>)
-@size[0.8em](- none<br>)
+@size[0.8em](Docker provide multiple drivers<br>)
 @size[0.8em](Can be connected to more than one network<br>)
 @size[0.8em](Connect/disconnect from networks without restarting<br>)
 
@@ -108,11 +103,11 @@ Supports port mapping
 
 ## Options for storing images
 
-Docker Hub<br>
-Microsoft Container Registry<br>
-Azure Container Registry<br>
-Github Packages<br>
-Others
+- Docker Hub<br>
+- Microsoft Container Registry<br>
+- Azure Container Registry<br>
+- Github Packages<br>
+- Others
 
 ---
 
