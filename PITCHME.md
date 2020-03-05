@@ -71,7 +71,7 @@ resources of the host
 
 ## Default networks
 
-<img src="assets/images/docker_networking.png" style="float: right"/>
+<img src="assets/images/docker_default_networks.png" style="float: right"/>
 
 - bridge<br>
 - host<br>
