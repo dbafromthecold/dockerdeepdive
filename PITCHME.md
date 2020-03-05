@@ -45,7 +45,7 @@ processes on the host or in other containers
 
 ## Control Groups
 
-Implements resource limiting of
+Implements resource limiting of:-
 - CPU
 - Memory
 - Disk IO
@@ -71,7 +71,7 @@ resources of the host
 
 ## Default networks
 
-<img src="assets/images/docker_network.png" style="float: right"/>
+<img src="assets/images/docker_networking.png" style="float: right"/>
 
 - bridge<br>
 - host<br>
