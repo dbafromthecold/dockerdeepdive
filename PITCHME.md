@@ -102,6 +102,10 @@ Supports port mapping
 
 # Container Images
 
+---
+
+## Options for storing images
+
 Docker Hub<br>
 Microsoft Container Registry<br>
 Azure Container Registry<br>
@@ -112,7 +116,10 @@ Others
 
 # Persisting data
 
-Options for persisting SQL Server data: -<br>
+---
+
+## Options for persisting SQL Server data
+
 - Bind mounts<br>
 - Named volumes<br>
 - Data volume containers<br>
@@ -121,11 +128,19 @@ Options for persisting SQL Server data: -<br>
 
 # Docker Compose
 
+---
+
+## What is Compose?
+
 @quote[Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose)
 
 ---
 
 # Non-root containers
+
+---
+
+## What user does SQL run as?
 
 Before 2019, SQL ran as root within the container<br>
 Now SQL runs as the MSSQL user<br>
