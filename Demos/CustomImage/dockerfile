@@ -1,1 +1,11 @@
-# dockerfile to install SQL 2019 on ubuntu from scratch
+FROM ubuntu:16.04
+
+RUN apt-get update && apt-get install -y wget software-properties-common apt-transport-https
+
+RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+RUN add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2019.list)"
+
+RUN apt-get update && apt-get install -y mssql-server
+
+CMD /opt/mssql/bin/sqlservr
