@@ -57,7 +57,9 @@ resources of the host
 
 ## Union file system
 
+<p align="center">
 <img src="assets/images/docker_container_layers.jpg"/>
+</p>
 
 @size[0.4em](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers)
 
@@ -118,7 +120,7 @@ Others
 
 ---
 
-## Options for persisting SQL Server data
+## Options for persisting data
 
 - Bind mounts<br>
 - Named volumes<br>
@@ -145,7 +147,9 @@ Others
 Before 2019, SQL ran as root within the container<br>
 Now SQL runs as the MSSQL user<br>
 
+<p align="center">
 <img src="assets/images/sql_nonroot_container.png" />
+</p>
 
 ---
 
