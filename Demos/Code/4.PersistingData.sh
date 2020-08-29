@@ -22,7 +22,7 @@ docker container run -d -p 15999:1433 \
 --env ACCEPT_EULA=Y \
 --env SA_PASSWORD=Testing1122 \
 --name testcontainer1 \
-mcr.microsoft.com/mssql/server:2019-CU2-ubuntu-16.04
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-16.04
 
 
 
