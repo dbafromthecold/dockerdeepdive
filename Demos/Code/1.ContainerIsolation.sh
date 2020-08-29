@@ -21,13 +21,13 @@ find /sys/fs/cgroup/ -name *$CONTAINERID*
 
 
 
-# get process IDs
+# get process IDs - TASKS
 DIR=$(find /sys/fs/cgroup/ -name *$CONTAINERID* | head -1) && cat $DIR/tasks
 
 
 
 # view namespaces associated with process
-PROCESSID=$(tail -n 1 $DIR/tasks) && sudo ls -Lil /proc/$PROCESSID/ns
+PROCESSID=$(tail -n 1 $DIR/tasks) && sudo ls -Lil /proc/179/ns
 
 
 
@@ -38,4 +38,7 @@ mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatab
 
 # view files on host
 DIR=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.UpperDir }}')
+
+# actual WSL files are here: - /mnt/wsl/docker-desktop-data/data/docker/overlay2
+
 sudo ls $DIR/var/opt/mssql/data
