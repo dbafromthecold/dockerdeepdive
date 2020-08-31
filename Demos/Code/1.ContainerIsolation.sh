@@ -92,7 +92,6 @@ docker inspect testcontainer1
 
 
 # get container file location
-LOWER=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.LowerDir }}') && echo $LOWER
 DIFF=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.UpperDir }}') && echo $DIFF
 MERGED=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $MERGED
 
@@ -104,6 +103,27 @@ sudo ls $MERGED
 
 sudo ls $DIFF/var/opt/mssql/data
 sudo ls $MERGED/var/opt/mssql/data
+
+
+# grab the lower directory for each container
+LOWER1=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.LowerDir }}')
+LOWER2=$(docker inspect testcontainer2 --format '{{ .GraphDriver.Data.LowerDir }}')
+
+
+
+# split out the paths and display
+IFS=’:’
+read -ra ARRAY1 <<< $LOWER1
+read -ra ARRAY2 <<< $LOWER2
+
+for x in “${ARRAY1[@]}”
+do
+echo $x
+done
+for y in “${ARRAY2[@]}”
+do
+echo $y
+done
 
 
 
