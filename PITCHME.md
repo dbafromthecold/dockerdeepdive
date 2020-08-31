@@ -24,7 +24,6 @@ To provide a deeper knowledge of the Docker platform
 @ul
 - Isolation<br>
 - Networking<br>
-- Container images<br>
 - Persisting data<br>
 - Docker Compose<br>
 - Non-root containers<br>
@@ -33,13 +32,6 @@ To provide a deeper knowledge of the Docker platform
 ---
 
 # Isolation
-
----
-
-## Namespaces
-
-Processes within the container cannot see<br>
-processes on the host or in other containers
 
 ---
 
@@ -55,6 +47,13 @@ resources of the host
 
 ---
 
+## Namespaces
+
+Processes within the container cannot see<br>
+processes on the host or in other containers
+
+---
+
 ## Union file system
 
 <p align="center">
@@ -62,6 +61,10 @@ resources of the host
 </p>
 
 @size[0.4em](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers)
+
+---
+
+# Demo
 
 ---
 
@@ -97,6 +100,10 @@ Supports port mapping
 
 ---
 
+# Demo
+
+---
+
 # Persisting data
 
 ---
@@ -109,6 +116,10 @@ Supports port mapping
 
 ---
 
+# Demo
+
+---
+
 # Docker Compose
 
 ---
@@ -116,6 +127,10 @@ Supports port mapping
 ## What is Compose?
 
 @quote[Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose)
+
+---
+
+# Demo
 
 ---
 
@@ -131,6 +146,10 @@ Now SQL runs as the MSSQL user<br>
 <p align="center">
 <img src="assets/images/sql_nonroot_container.png" />
 </p>
+
+---
+
+# Demo
 
 ---
 
