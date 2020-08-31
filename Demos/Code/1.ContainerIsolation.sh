@@ -35,15 +35,30 @@ PROCESSID=$(tail -n 1 $DIR/tasks) && sudo ls -Lil /proc/$PROCESSID/ns
 
 
 
+
+
+# https://docs.docker.com/storage/storagedriver/overlayfs-driver/
+
 # create a database in the SQL instance in the container
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase]"
 
 
 
+# inspect the container
+docker inspect testcontainer1
+
+
+
 # get container file location
-DIR=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.UpperDir }}') && echo $DIR
+LOWER=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.LowerDir }}') && echo $LOWER
+DIFF=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.UpperDir }}') && echo $DIFF
+MERGED=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $MERGED
 
 
 
 # view files on host
-sudo ls $DIR/var/opt/mssql/data
+sudo ls $DIFF
+sudo ls $MERGED
+
+sudo ls $DIFF/var/opt/mssql/data
+sudo ls $MERGED/var/opt/mssql/data
