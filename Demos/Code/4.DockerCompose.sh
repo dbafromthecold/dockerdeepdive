@@ -41,59 +41,55 @@ docker-compose up -d
 
 
 
+# recheck the docker networks on the host
 docker network ls
 
 
 
+# recheck the named volumes
 docker volume ls
 
 
 
+# check the images
 docker image ls
 
 
 
+# check the containers running
 docker container ls -a
 
 
 
+# connect to the SQL instance and create a database
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase];"
 
 
 
+# check the database has been created
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
 
 
 
+# spin down the container
 docker-compose down
 
 
 
+# check the networks again
 docker network ls
 
 
 
+# check the containers
 docker container ls -a
 
 
 
+# check the volumes
 docker volume ls
 
 
 
-docker-compose up -d
-
-
-
-
-docker run -it \
---network compose_default \
---name testcontainer2 \
-dbafromthecold/dockerdeepdive:networking-tools \
-bash
-
-
-
-ping compose_sqlserver1_1
-
-
+# check the images
+docker image ls
