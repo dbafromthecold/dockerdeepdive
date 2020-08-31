@@ -1,10 +1,6 @@
 
 
 
-ssh Linux1
-
-
-
 # run a container - limiting the memory available to it
 docker container run -d \
 --publish 15789:1433 \
@@ -56,7 +52,7 @@ testimage
 
 
 # have a look at the dockerfile (copied from the CustomImage directory in the github repo)
-cat ~/docker/dockerfile
+cat ~/git/DockerDeepDive/Demos/CustomImage/dockerfile
 
 
 
