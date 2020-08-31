@@ -97,20 +97,6 @@ Supports port mapping
 
 ---
 
-# Container Images
-
----
-
-## Options for storing images
-
-- Docker Hub<br>
-- Microsoft Container Registry<br>
-- Azure Container Registry<br>
-- Github Packages<br>
-- Others
-
----
-
 # Persisting data
 
 ---

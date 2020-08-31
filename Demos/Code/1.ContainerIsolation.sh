@@ -5,9 +5,10 @@ ssh Linux1
 
 
 
-# run a container
+# run a container - limiting the memory available to it
 docker container run -d \
 --publish 15789:1433 \
+--memory 2048M \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer1 \
@@ -20,24 +21,69 @@ CONTAINERID=$(docker ps -q) && echo $CONTAINERID
 
 
 
+# jump into the container
+docker exec -it testcontainer1 bash
+
+
+# get user details
+id
+
+
+
+# list processes
+ps aux
+
+
+
+# exit container
+exit
+
+
+
+# view mssql processes on host
+ps aux | grep mssql
+
+
+
+# let's run another container from a custom image
+docker container run -d \
+--publish 15799:1433 \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--name testcontainer2 \
+testimage
+
+
+
+# have a look at the dockerfile (copied from the CustomImage directory in the github repo)
+cat ~/docker/dockerfile
+
+
+
+# view mssql processes on host again
+ps aux | grep mssql
+
+
+
 # view control groups created
 find /sys/fs/cgroup/ -name *$CONTAINERID*
 
 
 
-# get process IDs - TASKS
-DIR=$(find /sys/fs/cgroup/ -name *$CONTAINERID* | head -1) && cat $DIR/tasks
+# get memory control group
+MEMORYCGROUP=$(find /sys/fs/cgroup/ -name *$CONTAINERID* | grep memory) && echo $MEMORYCGROUP
 
 
 
-# view namespaces associated with process
-PROCESSID=$(tail -n 1 $DIR/tasks) && sudo ls -Lil /proc/$PROCESSID/ns
+# get memory limit
+MEMORYLIMIT=$(cat $MEMORYCGROUP/memory.limit_in_bytes)
 
 
 
+# show memory limit of container
+expr $MEMORYLIMIT / 1024 / 1024
 
 
-# https://docs.docker.com/storage/storagedriver/overlayfs-driver/
 
 # create a database in the SQL instance in the container
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase]"
@@ -62,3 +108,8 @@ sudo ls $MERGED
 
 sudo ls $DIFF/var/opt/mssql/data
 sudo ls $MERGED/var/opt/mssql/data
+
+
+
+# clean up
+docker rm $(docker ps -aq) -f
