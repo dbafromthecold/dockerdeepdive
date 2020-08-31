@@ -105,6 +105,7 @@ sudo ls $DIFF/var/opt/mssql/data
 sudo ls $MERGED/var/opt/mssql/data
 
 
+
 # grab the lower directory for each container
 LOWER1=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.LowerDir }}')
 LOWER2=$(docker inspect testcontainer2 --format '{{ .GraphDriver.Data.LowerDir }}')
