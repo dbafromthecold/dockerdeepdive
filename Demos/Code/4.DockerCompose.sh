@@ -1,34 +1,42 @@
 
 
 
+# navigate to the compose files
 cd ~/git/DockerDeepDive/Demos/Compose
 
 
 
+# have a look at the dockerfile
 cat dockerfile
 
 
 
+# have a look at the environment variable file
 cat sqlserver.env
 
 
 
+# have a look at the docker-compose file
 cat docker-compose.yaml
 
 
 
+# check the docker networks on the host
 docker network ls
 
 
 
+# check the named volumes on the host
 docker volume ls
 
 
 
+# check the images on the host
 docker image ls
 
 
 
+# spin up a container with docker compose
 docker-compose up -d
 
 
