@@ -46,7 +46,7 @@ To provide a deeper knowledge of the Docker platform
 Implements resource limiting of:-
 - CPU
 - Memory
-- Disk IO
+- Network IO
 
 Ensures a single container cannot consume all<br>
 resources of the host
