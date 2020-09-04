@@ -17,12 +17,13 @@ docker volume ls
 
 
 # spin up a container with named volume mapped
-docker container run -d -p 15999:1433 \
+docker container run -d \
+--publish 15999:1433 \
 --volume sqlserver:/var/opt/sqlserver \
 --env ACCEPT_EULA=Y \
 --env SA_PASSWORD=Testing1122 \
 --name testcontainer1 \
-mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-16.04
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
@@ -31,12 +32,24 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 
+# create database
+
+
+mssql-cli -S localhost,15999 -U sa -P Testing1122 \
+-Q "CREATE DATABASE [testdatabase] 
+    ON PRIMARY 
+    (NAME='testdatabase',FILENAME='/var/opt/sqlserver/testdatabase.mdf') 
+    LOG ON 
+    (NAME='testdatabase_log',FILENAME='/var/opt/sqlserver/testdatabase_log.ldf');"
+
+
+
 # change owner to mssql
 docker exec -u 0 testcontainer1 bash -c "chown mssql /var/opt/sqlserver"
 
 
 
-# create database
+# try creating the database again
 mssql-cli -S localhost,15999 -U sa -P Testing1122 \
 -Q "CREATE DATABASE [testdatabase] 
     ON PRIMARY 
@@ -72,7 +85,7 @@ docker container run -d -p 16100:1433 \
 --env ACCEPT_EULA=Y \
 --env SA_PASSWORD=Testing1122 \
 --name testcontainer2 \
-mcr.microsoft.com/mssql/server:2019-CU2-ubuntu-16.04
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
@@ -81,7 +94,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 
-# change owner to mssql - RETEST THIS - not sure that the owner needs to be changed again
+# change owner to mssql - NOT NEEDED!
 # docker exec -u 0 testcontainer2 bash -c "chown -R mssql /var/opt/sqlserver"
 
 
@@ -112,13 +125,8 @@ docker container rm $(docker container ls -aq) -f && docker volume prune -f
 
 
 
-########################################################################
-########################################################################
-
-
-
 # all a bit manual though...
-# let's create a couple of named volumes
+# let's create a couple new named volumes
 docker volume create mssqlsystem && docker volume create mssqluser
 
 
@@ -137,12 +145,7 @@ docker container run -d -p 16110:1433 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver \
 --name testcontainer3 \
-mcr.microsoft.com/mssql/server:2019-CU2-ubuntu-16.04
-
-
-
-# check files in /var/opt/mssql
-docker exec testcontainer3 bash -c "ls -al /var/opt/mssql/data"
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
@@ -195,7 +198,7 @@ docker container run -d -p 16120:1433 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver \
 --name testcontainer4 \
-mcr.microsoft.com/mssql/server:2019-CU2-ubuntu-16.04
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 

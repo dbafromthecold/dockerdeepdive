@@ -16,13 +16,13 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer1 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer2 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
@@ -42,33 +42,45 @@ docker inspect testcontainer2 --format '{{ .NetworkSettings.IPAddress }}'
 
 
 
-# run a container on the same network with tools installed
-docker run -it dbafromthecold/dockerdeepdive:networking-tools bash
+# ping one of the containers using the container name
+docker exec testcontainer1 bash -c "ping testcontainer2 -c 4"
 
 
 
-# ping one of the container
-ping 172.17.0.2
+# ping one of the containers using the ip address
+docker exec testcontainer1 bash -c "ping 172.17.0.3 -c 4"
 
 
 
-# view container dns
-cat /etc/resolv.conf
-
-
-
-# connect to sql in another container
+# now connect to SQL in a container from the host
 mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
 
 
 
-# exit tools container
-exit
+# let's blow the containers away
+docker rm $(docker ps -aq) -f
 
 
 
-# try and connect to SQL within one of the containers from the host
-mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
+# and spin them up again, this time adding entries for each in the hosts file
+docker container run -d \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--add-host=testcontainer2:172.17.0.3 \
+--name testcontainer1 \
+dbafromthecold/dockerdeepdive:customsql2019-tools
+
+docker container run -d \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--add-host=testcontainer1:172.17.0.2 \
+--name testcontainer2 \
+dbafromthecold/dockerdeepdive:customsql2019-tools
+
+
+
+# ping one of the containers using the container name
+docker exec testcontainer1 bash -c "ping testcontainer2 -c 4"
 
 
 
@@ -78,20 +90,20 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer3 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --publish 15799:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer4 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
 # view port mapping
 docker port testcontainer3
-
+docker port testcontainer4
 
 
 # now connect to SQL in a container from the host
@@ -106,50 +118,30 @@ docker network create sqlserver
 
 # create two new containers on the custom network
 docker container run -d \
---network=sqlserver
+--network=sqlserver \
 --publish 15689:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer5 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
+dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
---network=sqlserver
+--network=sqlserver \
 --publish 15699:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name testcontainer6 \
-mcr.microsoft.com/mssql/rhel/server:2019-CU1-rhel-8
-
-
-
-# confirm containers are running
-docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
-
-
-
-# spin up tools container on same network
-docker run -it dbafromthecold/dockerdeepdive:networking-tools bash
+dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
 # ping containers by name
-ping testcontainer5
+docker exec testcontainer5 bash -c "ping testcontainer6 -c 4"
 
 
 
 # view dns settings
-cat /etc/resolv.conf
-
-
-
-# pull out information from dns server
-dig testcontainer5 @127.0.0.11
-
-
-
-# exit container
-exit
+docker exec testcontainer5 bash -c "cat /etc/resolv.conf"
 
 
 

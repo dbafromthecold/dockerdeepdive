@@ -65,6 +65,10 @@ docker container ls -a
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase];"
 
 
+# check the database files
+docker exec compose_sqlserver1_1 bash -c "ls -al /var/opt/sqlserver"
+
+
 
 # check the database has been created
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
