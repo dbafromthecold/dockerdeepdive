@@ -44,7 +44,7 @@ To provide a deeper knowledge of the Docker platform
 ## Control Groups
 
 Ensures a single container cannot consume all<br>
-resources of the host
+resources of the host<br>
 <br>
 Implements resource limiting of:-
 @ul
