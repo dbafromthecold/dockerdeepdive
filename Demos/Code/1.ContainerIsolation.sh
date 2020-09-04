@@ -16,13 +16,17 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 CONTAINERID=$(docker ps -q) && echo $CONTAINERID
 
 
+# view hostname of Docker host
+hostname
+
+
 
 # jump into the container
 docker exec -it testcontainer1 bash
 
 
 
-# view the hostname
+# view the hostname within the container
 hostname
 
 
@@ -34,6 +38,11 @@ id
 
 # list processes
 ps aux
+
+
+
+# have a look at the proc directory
+ls /proc
 
 
 
