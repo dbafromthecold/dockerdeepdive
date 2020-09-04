@@ -49,8 +49,12 @@ resources of the host
 
 ## Namespaces
 
-Processes within the container cannot see<br>
-processes on the host or in other containers
+Control what a container can see<br>
+
+@ul
+- Host name
+- Processes
+@ulend
 
 ---
 
