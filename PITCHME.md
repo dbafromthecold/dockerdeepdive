@@ -67,13 +67,13 @@ Used to control:-<br>
 
 ---
 
-## Union file system
+## File system
 
-<p align="center">
-<img src="assets/images/docker_container_layers.jpg"/>
-</p>
+Containers cannot see the entire host's filesystem<br>
+They can only see a subset of that filesystem<br>
+The container root directory is changed upon start up<br>
+Combining with namespaces limits the processes the container can see
 
-@size[0.4em](https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers)
 
 ---
 
