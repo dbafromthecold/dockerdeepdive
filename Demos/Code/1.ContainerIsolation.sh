@@ -21,6 +21,12 @@ CONTAINERID=$(docker ps -q) && echo $CONTAINERID
 docker exec -it testcontainer1 bash
 
 
+
+# view the hostname
+hostname
+
+
+
 # get user details
 id
 
