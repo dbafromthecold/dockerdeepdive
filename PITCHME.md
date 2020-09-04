@@ -69,10 +69,9 @@ Used to control:-<br>
 
 ## File system
 
-Containers cannot see the entire host's filesystem<br>
-They can only see a subset of that filesystem<br>
-The container root directory is changed upon start up<br>
-Combining with namespaces limits the processes the container can see
+- Containers cannot see the entire host's filesystem<br>
+- They can only see a subset of that filesystem<br>
+- The container root directory is changed upon start up
 
 
 ---
