@@ -35,6 +35,8 @@ To provide a deeper knowledge of the Docker platform
 
 ---
 
+## Container Isolation
+
 @quote[Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging](https://www.docker.com/resources/what-container)
 
 ---
