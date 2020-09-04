@@ -43,8 +43,6 @@ To provide a deeper knowledge of the Docker platform
 
 ## Control Groups
 
-Limits resources available to a container<br>
-<br>
 Ensures a single container cannot consume all<br>
 resources of the host
 <br>
@@ -59,11 +57,7 @@ Implements resource limiting of:-
 
 ## Namespaces
 
-@quote[Wraps a global system resource in an abstraction that makes it appear to the processes within the namespace that they have their own isolated instance of the global resource](https://man7.org/linux/man-pages/man7/namespaces.7.html)
-
-
-Control what a container can see<br>
-
+Control what a container can see:-<br>
 @ul
 - Host name
 - Processes
