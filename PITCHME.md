@@ -125,8 +125,8 @@ Supports port mapping
 ## Options for persisting data
 
 - Bind mounts<br>
-- Named volumes<br>
 - Data volume containers<br>
+- Named volumes
 
 ---
 
