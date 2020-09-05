@@ -41,11 +41,6 @@ ps aux
 
 
 
-# have a look at the proc directory
-ls /proc
-
-
-
 # exit container
 exit
 

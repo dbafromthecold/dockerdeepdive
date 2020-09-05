@@ -57,7 +57,7 @@ Implements resource limiting of:-
 
 ## Namespaces
 
-Control what a process can see<br>
+Control what a container can see<br>
 <br>
 Used to control:-<br>
 @ul
