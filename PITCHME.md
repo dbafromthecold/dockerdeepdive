@@ -70,9 +70,11 @@ Used to control:-<br>
 
 ## File system
 
+@ul
 - Containers cannot see the entire host's filesystem<br>
 - They can only see a subset of that filesystem<br>
 - The container root directory is changed upon start up
+@ulend
 
 ---
 
@@ -90,7 +92,7 @@ Used to control:-<br>
 
 - bridge<br>
 - host<br>
-- null<br>
+- none<br>
 
 ---
 
