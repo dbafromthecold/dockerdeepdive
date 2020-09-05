@@ -124,9 +124,11 @@ Supports port mapping
 
 ## Options for persisting data
 
+@ul
 - Bind mounts<br>
 - Data volume containers<br>
 - Named volumes
+@ulend
 
 ---
 
