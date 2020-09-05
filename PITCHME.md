@@ -107,8 +107,8 @@ Supports port mapping
 
 ## User defined networks
 
-@size[0.8em](Enables DNS resolution of container names to IP addresses<br>)
 @size[0.8em](Docker provide multiple drivers<br>)
+@size[0.8em](Enables DNS resolution of container names to IP addresses<br>)
 @size[0.8em](Can be connected to more than one network<br>)
 @size[0.8em](Connect/disconnect from networks without restarting<br>)
 
