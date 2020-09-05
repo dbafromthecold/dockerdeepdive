@@ -63,6 +63,7 @@ Used to control:-<br>
 @ul
 - Hostname within the container
 - Processes that the container can see
+- Mapping users in the container to users on the host
 @ulend
 
 ---
@@ -72,7 +73,6 @@ Used to control:-<br>
 - Containers cannot see the entire host's filesystem<br>
 - They can only see a subset of that filesystem<br>
 - The container root directory is changed upon start up
-
 
 ---
 
