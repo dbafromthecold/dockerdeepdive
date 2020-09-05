@@ -1,6 +1,8 @@
 # Docker Deep Dive
 
-https://gitpitch.com/dbafromthecold/DockerDeepDive
+Code for my Docker Deep Dive session
+
+Slides are available here: - https://gitpitch.com/dbafromthecold/DockerDeepDive
 
 This session covers
 - Container Isolation
