@@ -136,8 +136,6 @@ Supports port mapping
 
 # Docker Compose
 
----
-
 ---?code=assets/code/run_container.sh&lang=bash&title=Running a Container
 
 @[1](Run container in the background)
@@ -155,7 +153,6 @@ Supports port mapping
 @[13](Mapping the sqlbackup named volume)
 @[14](Specifying a name for the container)
 @[15](Specifying the image to build the container from)
-
 
 ---
 
