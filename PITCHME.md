@@ -191,7 +191,8 @@ Now SQL runs as the MSSQL user<br>
 ## Resources
 
 @size[0.8em](https://tinyurl.com/yyz8fe9x/DockerDeepDive)<br>
-@size[0.8em](http://tinyurl.com/y3x29t3j/summary-of-my-container-series/)
+@size[0.8em](http://tinyurl.com/y3x29t3j/summary-of-my-container-series/)<br>
+@size[0.8em](https://github.com/dbafromthecold/SqlServerAndContainersGuide)
 
 <p align="center">
 <img src="assets/images/dockerdeepdive_qr_code.png" />
