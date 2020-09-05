@@ -1,3 +1,12 @@
+############################################################################
+############################################################################
+#
+# Docker Deep Dive - Andrew Pruski
+# https://github.com/dbafromthecold/DockerDeepDive
+# Persisting Data
+#
+############################################################################
+############################################################################
 
 
 
@@ -33,8 +42,6 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # create database
-
-
 mssql-cli -S localhost,15999 -U sa -P Testing1122 \
 -Q "CREATE DATABASE [testdatabase] 
     ON PRIMARY 
@@ -45,7 +52,7 @@ mssql-cli -S localhost,15999 -U sa -P Testing1122 \
 
 
 # change owner to mssql
-docker exec -u 0 testcontainer1 bash -c "chown mssql /var/opt/sqlserver"
+docker exec -u 0 testcontainer1 chown mssql /var/opt/sqlserver
 
 
 
@@ -95,12 +102,12 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # change owner to mssql - NOT NEEDED!
-# docker exec -u 0 testcontainer2 bash -c "chown -R mssql /var/opt/sqlserver"
+# docker exec -u 0 testcontainer2 chown -R mssql /var/opt/sqlserver
 
 
 
 # check database files are there
-docker container exec -it testcontainer2 bash -c "ls /var/opt/sqlserver"
+docker container exec -it testcontainer2 ls -al /var/opt/sqlserver
 
 
 
@@ -155,7 +162,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # change owner to mssql
-docker exec -u 0 testcontainer3 bash -c "chown -R mssql /var/opt/sqlserver"
+docker exec -u 0 testcontainer3 chown -R mssql /var/opt/sqlserver
 
 
 
@@ -166,6 +173,11 @@ mssql-cli -S localhost,16110 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatab
 
 # confirm database is there
 mssql-cli -S localhost,16110 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
+
+
+
+# check the database file location
+mssql-cli -S localhost,16110 -U sa -P Testing1122 -Q "USE [testdatabase2]; EXEC sp_helpfile;"
 
 
 

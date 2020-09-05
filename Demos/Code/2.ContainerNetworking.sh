@@ -1,3 +1,12 @@
+############################################################################
+############################################################################
+#
+# Docker Deep Dive - Andrew Pruski
+# https://github.com/dbafromthecold/DockerDeepDive
+# Container Networking
+#
+############################################################################
+############################################################################
 
 
 
@@ -43,12 +52,12 @@ docker inspect testcontainer2 --format '{{ .NetworkSettings.IPAddress }}'
 
 
 # ping one of the containers using the container name
-docker exec testcontainer1 bash -c "ping testcontainer2 -c 4"
+docker exec testcontainer1 ping testcontainer2 -c 4
 
 
 
 # ping one of the containers using the ip address
-docker exec testcontainer1 bash -c "ping 172.17.0.3 -c 4"
+docker exec testcontainer1 ping 172.17.0.3 -c 4
 
 
 
@@ -80,7 +89,7 @@ dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 # ping one of the containers using the container name
-docker exec testcontainer1 bash -c "ping testcontainer2 -c 4"
+docker exec testcontainer1 ping testcontainer2 -c 4
 
 
 
@@ -136,12 +145,12 @@ dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 # ping containers by name
-docker exec testcontainer5 bash -c "ping testcontainer6 -c 4"
+docker exec testcontainer5 ping testcontainer6 -c 4
 
 
 
 # view dns settings
-docker exec testcontainer5 bash -c "cat /etc/resolv.conf"
+docker exec testcontainer5 cat /etc/resolv.conf
 
 
 

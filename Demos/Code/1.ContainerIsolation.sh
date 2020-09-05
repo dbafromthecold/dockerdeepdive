@@ -1,3 +1,12 @@
+############################################################################
+############################################################################
+#
+# Docker Deep Dive - Andrew Pruski
+# https://github.com/dbafromthecold/DockerDeepDive
+# Container Isolation
+#
+############################################################################
+############################################################################
 
 
 
@@ -12,62 +21,18 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
-# grab container ID
+# confirm container is running
+docker container ls -a
+
+
+
+# list containers again using --format
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
+
+
+
+# grab the container ID
 CONTAINERID=$(docker ps -q) && echo $CONTAINERID
-
-
-# view hostname of Docker host
-hostname
-
-
-
-# jump into the container
-docker exec -it testcontainer1 bash
-
-
-
-# view the hostname within the container
-hostname
-
-
-
-# get user details
-id
-
-
-
-# list processes
-ps aux
-
-
-
-# exit container
-exit
-
-
-
-# view mssql processes on host
-ps aux | grep mssql
-
-
-
-# let's run another container from a custom image
-docker container run -d \
---publish 15799:1433 \
---env ACCEPT_EULA=Y \
---env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer2 \
-testimage
-
-
-
-# have a look at the dockerfile (copied from the CustomImage directory in the github repo)
-cat ~/git/DockerDeepDive/Demos/CustomImage/dockerfile
-
-
-
-# view mssql processes on host again
-ps aux | grep mssql
 
 
 
@@ -91,50 +56,78 @@ expr $MEMORYLIMIT / 1024 / 1024
 
 
 
+# view hostname of Docker host
+hostname
+
+
+
+# view the hostname within the container
+docker exec testcontainer1 hostname
+
+
+
+# get user details
+docker exec testcontainer1 id
+
+
+
+# run exec again changing the user to root
+docker exec -u 0 testcontainer1 id
+
+
+
+# list processes within the container
+docker exec testcontainer1 ps aux
+
+
+
+# view mssql processes on host
+ps aux | grep mssql
+
+
+
+# let's run another container from a custom image which runs SQL as root
+docker container run -d \
+--publish 15799:1433 \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--name testcontainer2 \
+dbafromthecold/dockerdeepdive:customsql2019-root
+
+
+
+# view mssql processes on host again
+ps aux | grep mssql
+
+
+
 # create a database in the SQL instance in the container
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase]"
 
 
 
-# inspect the container
-docker inspect testcontainer1
+# list the database files within the container
+docker exec testcontainer1 ls -al /var/opt/mssql/data
 
 
 
-# get container file location
-DIFF=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.UpperDir }}') && echo $DIFF
-MERGED=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $MERGED
+# list those files on the host
+ls -al /var/opt/mssql/data
 
 
 
-# view files on host
-sudo ls $DIFF
-sudo ls $MERGED
-
-sudo ls $DIFF/var/opt/mssql/data
-sudo ls $MERGED/var/opt/mssql/data
+# get container root location
+FILES=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $FILES
 
 
 
-# grab the lower directory for each container
-LOWER1=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.LowerDir }}')
-LOWER2=$(docker inspect testcontainer2 --format '{{ .GraphDriver.Data.LowerDir }}')
+# view root directory of the container on the host
+sudo ls -al $FILES
 
 
 
-# split out the paths and display
-IFS=’:’
-read -ra ARRAY1 <<< $LOWER1
-read -ra ARRAY2 <<< $LOWER2
-
-for x in “${ARRAY1[@]}”
-do
-echo $x
-done
-for y in “${ARRAY2[@]}”
-do
-echo $y
-done
+# view the database files on the host
+sudo ls $FILES/var/opt/mssql/data
 
 
 

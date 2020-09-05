@@ -138,6 +138,27 @@ Supports port mapping
 
 ---
 
+---?code=assets/code/run_container.sh&lang=bash&title=Running a Container
+
+@[1](Run container in the background)
+@[2](Mapping ports)
+@[3](Setting the SA password)
+@[4](Accepting the EULA)
+@[5](Enabling the Agent)
+@[6](Setting the default data directory)
+@[7](Setting the default log directory)
+@[8](Setting the default backup directory)
+@[9](Attaching the container to a custom network)
+@[10](Mapping the sqlsystem named volume)
+@[11](Mapping the sqldata named volume)
+@[12](Mapping the sqllog named volume)
+@[13](Mapping the sqlbackup named volume)
+@[14](Specifying a name for the container)
+@[15](Specifying the image to build the container from)
+
+
+---
+
 ## What is Compose?
 
 @quote[Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose)
