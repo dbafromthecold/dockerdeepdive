@@ -4,7 +4,7 @@
 
 ## Andrew Pruski
 
-### SQL Server DBA, Microsoft Data Platform MVP & Certified Kuberented Administrator
+### SQL Server DBA, Microsoft Data Platform MVP & Certified Kubernetes Administrator
 
 @fa[twitter] @dbafromthecold <br>
 @fa[envelope] dbafromthecold@gmail.com <br>
