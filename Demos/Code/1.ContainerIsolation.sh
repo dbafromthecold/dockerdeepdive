@@ -41,8 +41,9 @@ find /sys/fs/cgroup/ -name *$CONTAINERID*
 
 
 
-# get memory control group
+# get memory and cpu control groups
 MEMORYCGROUP=$(find /sys/fs/cgroup/ -name *$CONTAINERID* | grep memory) && echo $MEMORYCGROUP
+CPUCGROUP=$(find /sys/fs/cgroup/ -name *$CONTAINERID* | grep cpu,cpuacct) && echo $CPUCGROUP
 
 
 
@@ -51,8 +52,13 @@ MEMORYLIMIT=$(cat $MEMORYCGROUP/memory.limit_in_bytes)
 
 
 
-# show memory limit of container
+# show memory limit of container in MB
 expr $MEMORYLIMIT / 1024 / 1024
+
+
+
+# show unrestricted CPU limit
+cat $CPUCGROUP/cpu.cfs_quota_us
 
 
 
