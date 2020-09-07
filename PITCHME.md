@@ -50,7 +50,6 @@ Implements resource limiting of:-
 @ul
 - CPU
 - Memory
-- Network IO
 @ulend
 
 ---
