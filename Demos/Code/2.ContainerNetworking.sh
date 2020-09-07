@@ -46,8 +46,8 @@ docker network inspect bridge
 
 
 # grab the IP addresses of the containers
-docker inspect testcontainer1 --format '{{ .NetworkSettings.IPAddress }}' 
-docker inspect testcontainer2 --format '{{ .NetworkSettings.IPAddress }}' 
+IPADDR1=$(docker inspect testcontainer1 --format '{{ .NetworkSettings.IPAddress }}') && echo $IPADDR1
+IPADDR2=$(docker inspect testcontainer2 --format '{{ .NetworkSettings.IPAddress }}') && echo $IPADDR2 
 
 
 
@@ -57,12 +57,12 @@ docker exec testcontainer1 ping testcontainer2 -c 4
 
 
 # ping one of the containers using the ip address
-docker exec testcontainer1 ping 172.17.0.3 -c 4
+docker exec testcontainer1 ping $IPADDR2 -c 4
 
 
 
 # now connect to SQL in a container from the host
-mssql-cli -S 172.17.0.2 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
+mssql-cli -S $IPADDR1 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
 
 
 
