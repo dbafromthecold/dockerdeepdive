@@ -10,11 +10,6 @@
 
 
 
-# remove unused volumes
-docker volume prune -f
-
-
-
 # create the named volume
 docker volume create sqlserver
 

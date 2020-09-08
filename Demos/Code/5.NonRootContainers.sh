@@ -36,12 +36,17 @@ docker run -d -p 15789:1433 \
 --env SA_PASSWORD=Testing1122 \
 --env ACCEPT_EULA=Y \
 --name testcontainer1 \
-testimage
+dbafromthecold/dockerdeepdive:customsql2019-root
 
 
 
 # look at the log
 docker logs testcontainer1 | head -3
+
+
+
+# check the mssql process on the host
+ps aux | grep mssql
 
 
 

@@ -11,7 +11,7 @@
 
 
 # list networks
-docker network list
+docker network ls
 
 
 
@@ -122,6 +122,11 @@ mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Versi
 
 # create custom bridge network
 docker network create sqlserver
+
+
+
+# list networks
+docker network ls
 
 
 
