@@ -137,7 +137,7 @@ Supports port mapping
 
 # Custom images
 
----?code=assets/code/dockerfile&lang=bash&title=Building a container image
+---?code=assets/code/customimage&lang=bash&title=Building a container image
 
 @[1](Specifying the base image to build from)
 @[3](Switching to the root user)
