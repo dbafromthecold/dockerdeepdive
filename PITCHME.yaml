@@ -24,7 +24,7 @@ layout : center-left
 #
 transition : slide
 
-footnote : "SQL Server & Kubernetes - dbafromthecold"
+footnote : "Docker Deep Dive - dbafromthecold"
 
 #
 # Additional sample quickstart setting options:

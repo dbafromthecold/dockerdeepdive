@@ -1,28 +1,18 @@
-FROM ubuntu:18.04
+FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
-RUN useradd -u 10001 mssql
+USER root
 
-# installing SQL Server
-RUN apt-get update && apt-get install -y wget software-properties-common apt-transport-https
-RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-RUN add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2019.list)"
-RUN apt-get update && apt-get install -y mssql-server
-
-# creating directories
 RUN mkdir /opt/sqlserver
 RUN mkdir /opt/sqlserver/data
 RUN mkdir /opt/sqlserver/log
 RUN mkdir /opt/sqlserver/backups
 
-# set permissions on directories
 RUN chown -R mssql:mssql /opt/sqlserver
 RUN chown -R mssql:mssql /var/opt/mssql
 
-# set environment variables
 ENV ACCEPT_EULA="Y"
 ENV MSSQL_PID="Developer"
 
 USER mssql
 
-# start sql server
 CMD /opt/mssql/bin/sqlservr
