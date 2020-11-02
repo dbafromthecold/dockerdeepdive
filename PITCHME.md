@@ -25,8 +25,8 @@ To provide a deeper knowledge of the Docker platform
 - Isolation<br>
 - Networking<br>
 - Persisting data<br>
+- Custom images<br>
 - Docker Compose<br>
-- Non-root containers<br>
 @ulend
 
 ---
@@ -135,6 +135,22 @@ Supports port mapping
 
 ---
 
+# Custom images
+
+---
+
+---?code=assets/code/dockerfile&lang=bash&title=Building a container image
+
+@[1](Specifying the base image to build from)
+@[3](Switching to the root user)
+@[5-8](Creating directories)
+@[10-11](Changing the owner of the directories)
+@[13-14](Setting environment variables)
+@[16](Switching to the mssql user)
+@[18](Starting SQL Server)
+
+---
+
 # Docker Compose
 
 ---?code=assets/code/run_container.sh&lang=bash&title=Running a Container
@@ -160,25 +176,6 @@ Supports port mapping
 ## What is Compose?
 
 @quote[Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose)
-
----
-
-# Demo
-
----
-
-# Non-root containers
-
----
-
-## What user does SQL run as?
-
-Before 2019, SQL ran as root within the container<br>
-Now SQL runs as the MSSQL user<br>
-
-<p align="center">
-<img src="assets/images/sql_nonroot_container.png" />
-</p>
 
 ---
 
