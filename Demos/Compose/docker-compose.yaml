@@ -11,9 +11,9 @@ services:
           - sqlserver.env
         volumes: 
           - sqlsystem:/var/opt/mssql/
-          - sqldata:/var/opt/sqlserver/data
-          - sqllog:/var/opt/sqlserver/log
-          - sqlbackup:/var/opt/sqlserver/backup
+          - sqldata:/var/opt/sqlserver/sqldata
+          - sqllog:/var/opt/sqlserver/sqllog
+          - sqlbackup:/var/opt/sqlserver/sqlbackup
 
 volumes:
   sqlsystem:

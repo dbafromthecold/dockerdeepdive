@@ -142,10 +142,9 @@ Supports port mapping
 @[1](Specifying the base image to build from)
 @[3](Switching to the root user)
 @[5-8](Creating directories)
-@[10-11](Changing the owner of the directories)
-@[13-14](Setting environment variables)
-@[16](Switching to the mssql user)
-@[18](Starting SQL Server)
+@[10](Changing the owner of the directories)
+@[12](Switching to the mssql user)
+@[14](Starting SQL Server)
 
 ---
 
