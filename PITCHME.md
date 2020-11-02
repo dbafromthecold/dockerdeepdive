@@ -150,7 +150,7 @@ Supports port mapping
 
 # Docker Compose
 
----?code=assets/code/run_container.sh&lang=bash&title=Running a Container
+---?code=assets/code/docker_container_run.sh&lang=bash&title=Running a Container
 
 @[1](Run container in the background)
 @[2](Mapping ports)
