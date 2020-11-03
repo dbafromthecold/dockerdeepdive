@@ -16,7 +16,7 @@ docker container run -d \
 --memory 2048M \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer1 \
+--name sqlcontainer1 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -68,22 +68,22 @@ hostname
 
 
 # view the hostname within the container
-docker exec testcontainer1 hostname
+docker exec sqlcontainer1 hostname
 
 
 
 # get user details
-docker exec testcontainer1 id
+docker exec sqlcontainer1 id
 
 
 
 # run exec again changing the user to root
-docker exec -u 0 testcontainer1 id
+docker exec -u 0 sqlcontainer1 id
 
 
 
 # list processes within the container
-docker exec testcontainer1 ps aux
+docker exec sqlcontainer1 ps aux
 
 
 
@@ -97,7 +97,7 @@ docker container run -d \
 --publish 15799:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer2 \
+--name sqlcontainer2 \
 dbafromthecold/dockerdeepdive:customsql2019-root
 
 
@@ -113,7 +113,7 @@ mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatab
 
 
 # list the database files within the container
-docker exec testcontainer1 ls -al /var/opt/mssql/data
+docker exec sqlcontainer1 ls -al /var/opt/mssql/data
 
 
 
@@ -123,7 +123,7 @@ ls -al /var/opt/mssql/data
 
 
 # get container root location
-FILES=$(docker inspect testcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $FILES
+FILES=$(docker inspect sqlcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $FILES
 
 
 

@@ -26,7 +26,7 @@ docker container run -d \
 --volume sqlserver:/var/opt/sqlserver \
 --env ACCEPT_EULA=Y \
 --env SA_PASSWORD=Testing1122 \
---name testcontainer1 \
+--name sqlcontainer1 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -46,12 +46,12 @@ mssql-cli -S localhost,15999 -U sa -P Testing1122 \
 
 
 # view the directory in the container
-docker exec -u 0 testcontainer1 ls -al /var/opt/
+docker exec -u 0 sqlcontainer1 ls -al /var/opt/
 
 
 
 # change owner to mssql
-docker exec -u 0 testcontainer1 chown mssql /var/opt/sqlserver
+docker exec -u 0 sqlcontainer1 chown mssql /var/opt/sqlserver
 
 
 
@@ -90,7 +90,7 @@ docker container run -d -p 16100:1433 \
 --volume sqlserver:/var/opt/sqlserver \
 --env ACCEPT_EULA=Y \
 --env SA_PASSWORD=Testing1122 \
---name testcontainer2 \
+--name sqlcontainer2 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -101,12 +101,12 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # change owner to mssql - NOT NEEDED!
-# docker exec -u 0 testcontainer2 chown -R mssql /var/opt/sqlserver
+# docker exec -u 0 sqlcontainer2 chown -R mssql /var/opt/sqlserver
 
 
 
 # check database files are there
-docker container exec -it testcontainer2 ls -al /var/opt/sqlserver
+docker container exec -it sqlcontainer2 ls -al /var/opt/sqlserver
 
 
 
@@ -150,7 +150,7 @@ docker container run -d -p 16110:1433 \
 --env SA_PASSWORD=Testing1122 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver \
---name testcontainer3 \
+--name sqlcontainer3 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -161,7 +161,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # change owner to mssql
-docker exec -u 0 testcontainer3 chown -R mssql /var/opt/sqlserver
+docker exec -u 0 sqlcontainer3 chown -R mssql /var/opt/sqlserver
 
 
 
@@ -181,7 +181,7 @@ mssql-cli -S localhost,16110 -U sa -P Testing1122 -Q "USE [testdatabase2]; EXEC 
 
 
 # View database files
-docker exec -u 0 testcontainer3 bash -c "ls -al /var/opt/sqlserver"
+docker exec -u 0 sqlcontainer3 bash -c "ls -al /var/opt/sqlserver"
 
 
 
@@ -208,7 +208,7 @@ docker container run -d -p 16120:1433 \
 --env SA_PASSWORD=Testing1122 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver \
---name testcontainer4 \
+--name sqlcontainer4 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -251,7 +251,7 @@ docker container run -d \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver/data \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
 --env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup \
---name testcontainer5 \
+--name sqlcontainer5 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -262,7 +262,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # change the owner of the sqlserver directory
-docker exec -u 0 testcontainer5 chown -R mssql /var/opt/sqlserver
+docker exec -u 0 sqlcontainer5 chown -R mssql /var/opt/sqlserver
 
 
 

@@ -24,13 +24,13 @@ docker network inspect bridge
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer1 \
+--name sqlcontainer1 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer2 \
+--name sqlcontainer2 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
@@ -46,18 +46,18 @@ docker network inspect bridge
 
 
 # grab the IP addresses of the containers
-IPADDR1=$(docker inspect testcontainer1 --format '{{ .NetworkSettings.IPAddress }}') && echo $IPADDR1
-IPADDR2=$(docker inspect testcontainer2 --format '{{ .NetworkSettings.IPAddress }}') && echo $IPADDR2 
+IPADDR1=$(docker inspect sqlcontainer1 --format '{{ .NetworkSettings.IPAddress }}') && echo $IPADDR1
+IPADDR2=$(docker inspect sqlcontainer2 --format '{{ .NetworkSettings.IPAddress }}') && echo $IPADDR2 
 
 
 
 # ping one of the containers using the container name
-docker exec testcontainer1 ping testcontainer2 -c 4
+docker exec sqlcontainer1 ping sqlcontainer2 -c 4
 
 
 
 # ping one of the containers using the ip address
-docker exec testcontainer1 ping $IPADDR2 -c 4
+docker exec sqlcontainer1 ping $IPADDR2 -c 4
 
 
 
@@ -75,21 +75,21 @@ docker rm $(docker ps -aq) -f
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---add-host=testcontainer2:172.17.0.3 \
---name testcontainer1 \
+--add-host=sqlcontainer2:172.17.0.3 \
+--name sqlcontainer1 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---add-host=testcontainer1:172.17.0.2 \
---name testcontainer2 \
+--add-host=sqlcontainer1:172.17.0.2 \
+--name sqlcontainer2 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
 # ping one of the containers using the container name
-docker exec testcontainer1 ping testcontainer2 -c 4
+docker exec sqlcontainer1 ping sqlcontainer2 -c 4
 
 
 
@@ -98,21 +98,21 @@ docker container run -d \
 --publish 15789:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer3 \
+--name sqlcontainer3 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --publish 15799:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer4 \
+--name sqlcontainer4 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
 # view port mapping
-docker port testcontainer3
-docker port testcontainer4
+docker port sqlcontainer3
+docker port sqlcontainer4
 
 
 # now connect to SQL in a container from the host
@@ -136,7 +136,7 @@ docker container run -d \
 --publish 15689:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer5 \
+--name sqlcontainer5 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
@@ -144,18 +144,18 @@ docker container run -d \
 --publish 15699:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name testcontainer6 \
+--name sqlcontainer6 \
 dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
 # ping containers by name
-docker exec testcontainer5 ping testcontainer6 -c 4
+docker exec sqlcontainer5 ping sqlcontainer6 -c 4
 
 
 
 # view dns settings
-docker exec testcontainer5 cat /etc/resolv.conf
+docker exec sqlcontainer5 cat /etc/resolv.conf
 
 
 
