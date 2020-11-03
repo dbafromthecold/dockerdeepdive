@@ -98,7 +98,7 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer2 \
-dbafromthecold/dockerdeepdive:customsql2019-root
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-root
 
 
 

@@ -25,13 +25,13 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer1 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer2 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
@@ -77,14 +77,14 @@ docker container run -d \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --add-host=sqlcontainer2:172.17.0.3 \
 --name sqlcontainer1 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --add-host=sqlcontainer1:172.17.0.2 \
 --name sqlcontainer2 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
@@ -99,14 +99,14 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer3 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --publish 15799:1433 \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer4 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
@@ -137,7 +137,7 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer5 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 docker container run -d \
 --network=sqlserver \
@@ -145,7 +145,7 @@ docker container run -d \
 --env ACCEPT_EULA=Y \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer6 \
-dbafromthecold/dockerdeepdive:customsql2019-tools
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
 
 
 
