@@ -159,7 +159,7 @@ docker image ls
 
 
 # inspect the image
-docker image inspect --format='' customimage2
+docker image inspect customimage2
 
 
 
