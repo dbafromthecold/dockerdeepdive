@@ -11,7 +11,7 @@
 
 
 # navigate to dockerfile location
-cd ~/git/DockerDeepDive/Demos/CustomImage
+cd ~/git/DockerDeepDive/Demos/CustomImages/Image1
 
 
 
