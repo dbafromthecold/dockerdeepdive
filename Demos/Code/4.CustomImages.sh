@@ -134,5 +134,49 @@ cd ~/git/DockerDeepDive/Demos/CustomImages/Image2
 
 
 
+# list files in directory
+ls -al
+
+
 # have a look at the dockerfile
 cat dockerfile
+
+
+
+# have a look at the attach-db.sh script
+cat attach-db.sh
+
+
+
+# build the image
+docker build -t customimage2 .
+
+
+
+# list images
+docker image ls
+
+
+
+# run container from custom image
+docker container run -d \
+--publish 15800:1433 \
+--env SA_PASSWORD=Testing1122 \
+--name sqlcontainer3 \
+customimage2
+
+
+
+# check the container is running
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
+
+
+
+# confirm database is there
+mssql-cli -S localhost,15800 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
+
+
+
+# clean up
+docker rm $(docker container ls -aq) -f
+docker image rm customimage2
