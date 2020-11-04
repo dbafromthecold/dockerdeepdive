@@ -161,3 +161,4 @@ docker exec sqlcontainer5 cat /etc/resolv.conf
 
 # clean up
 docker rm $(docker ps -aq) -f
+docker network rm sqlserver

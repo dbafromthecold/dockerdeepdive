@@ -11,7 +11,7 @@
 
 
 # navigate to dockerfile location
-cd /mnt/c/git/dbafromthecold/DockerDeepDive/Demos/CustomImage
+cd ~/git/DockerDeepDive/Demos/CustomImage
 
 
 
@@ -125,3 +125,4 @@ mssql-cli -S localhost,15799 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.dat
 # clean up
 docker rm $(docker container ls -aq) -f
 docker volume prune -f
+docker image rm customimage1

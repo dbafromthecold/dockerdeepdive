@@ -106,3 +106,9 @@ docker volume ls
 
 # check the images
 docker image ls
+
+
+
+# clean up
+docker volume prune -f
+docker image rm compose_sqlserver1

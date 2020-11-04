@@ -133,7 +133,7 @@ sudo ls -al $FILES
 
 
 # view the database files on the host
-sudo ls $FILES/var/opt/mssql/data
+sudo ls -al $FILES/var/opt/mssql/data
 
 
 
