@@ -126,3 +126,13 @@ mssql-cli -S localhost,15799 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.dat
 docker rm $(docker container ls -aq) -f
 docker volume prune -f
 docker image rm customimage1
+
+
+
+# let's build another image
+cd ~/git/DockerDeepDive/Demos/CustomImages/Image2
+
+
+
+# have a look at the dockerfile
+cat dockerfile
