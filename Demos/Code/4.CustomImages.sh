@@ -158,6 +158,11 @@ docker image ls
 
 
 
+# inspect the image
+docker image inspect --format='' customimage2
+
+
+
 # run container from custom image
 docker container run -d \
 --publish 15800:1433 \

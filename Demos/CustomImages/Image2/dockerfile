@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+LABEL maintainer="dbafromthecold@gmail.com"
+
 # create mssql user
 RUN useradd -u 10001 mssql
 
