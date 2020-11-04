@@ -141,10 +141,12 @@ Supports port mapping
 
 ## Building your own image
 
-- Custom images built from a file containing instructions
-- Known as a dockerfile
-- Ability to customise the image to grant permissions to directories
-- Can also add databases to the SQL instance, ready to go when container starts
+@ul
+- Custom images built from a file containing instructions<br>
+- Known as a dockerfile<br>
+- Customise the image to grant permissions to directories<br>
+- Add databases to SQL Server, ready to go when container starts<br>
+@ulend
 
 ---?code=assets/code/customimage&lang=bash&title=Building a container image
 
