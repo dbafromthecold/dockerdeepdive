@@ -13,7 +13,7 @@ www.dbafromthecold.com<br>
 ---
 
 ## Session Aim
-
+<!-- .slide: style="text-align: left;"> -->
 To provide a deeper knowledge of the Docker platform
 
 ---
@@ -34,8 +34,8 @@ To provide a deeper knowledge of the Docker platform
 
 ## Container Isolation
 <!-- .slide: style="text-align: left;"> -->
->Containers isolate software from its environment and ensure that it works uniformly 
->despite differences for instance between development and staging
+>"Containers isolate software from its environment and ensure that it works uniformly 
+>despite differences for instance between development and staging"
 https://www.docker.com/resources/what-container
 
 ---
@@ -44,6 +44,7 @@ https://www.docker.com/resources/what-container
 <!-- .slide: style="text-align: left;"> -->
 Ensures a single container cannot consume all<br>
 resources of the host<br>
+<br>
 Implements resource limiting of:-
 - CPU
 - Memory
@@ -53,6 +54,7 @@ Implements resource limiting of:-
 ## Namespaces
 <!-- .slide: style="text-align: left;"> -->
 Control what a container can see<br>
+<br>
 Used to control:-<br>
 - Hostname within the container
 - Processes that the container can see
@@ -188,9 +190,10 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 ## What is Compose?
 <!-- .slide: style="text-align: left;"> -->
->Compose is a tool for defining and running multi-container Docker applications.
+>"Compose is a tool for defining and running multi-container Docker applications.
 >With Compose, you use a YAML file to configure your application’s services.
->Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose
+>Then, with a single command, you create and start all the services from your configuration."
+docs.docker.com/compose
 
 ---
 
