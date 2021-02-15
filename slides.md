@@ -80,7 +80,7 @@ Used to control:-<br>
 
 ## Default networks
 
-<img src="assets/images/docker_default_networks.png" style="float: right"/>
+<img src="images/docker_default_networks.png" style="float: right"/>
 
 - bridge<br>
 - host<br>
@@ -139,8 +139,7 @@ Connect/disconnect from networks without restarting<br>
 
 ---
 
-<pre><code>
-FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+<pre><code>FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 USER root
 
@@ -164,8 +163,7 @@ CMD /opt/mssql/bin/sqlservr
 
 # Docker Compose
 
-<pre><code>
-docker run -d
+<pre><code>docker run -d
 --publish 15789:1433
 --env SA_PASSWORD=Testing1122
 --env ACCEPT_EULA=Y
@@ -186,8 +184,8 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 ## What is Compose?
 
->Compose is a tool for defining and running multi-container Docker applications. 
->With Compose, you use a YAML file to configure your application’s services. 
+>Compose is a tool for defining and running multi-container Docker applications.
+>With Compose, you use a YAML file to configure your application’s services.
 >Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose
 
 ---
@@ -203,6 +201,6 @@ http://tinyurl.com/y3x29t3j/summary-of-my-container-series<br>
 https://github.com/dbafromthecold/SqlServerAndContainersGuide
 
 <p align="center">
-<img src="assets/images/dockerdeepdive_qr_code.png" />
+<img src="images/dockerdeepdive_qr_code.png" />
 </p>
 
