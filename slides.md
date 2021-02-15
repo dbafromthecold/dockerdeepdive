@@ -33,11 +33,9 @@ To provide a deeper knowledge of the Docker platform
 ---
 
 ## Container Isolation
-
->"Containers isolate software from its environment and ensure that it works uniformly 
->despite differences for instance between development and staging"
-https://www.docker.com/resources/what-container
-
+<!-- .slide: style="text-align: left;"> -->
+"Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging"<br>
+<font size="6"><a href="https://www.docker.com/resources/what-container">docker.com/resources/what-container</a></font>
 ---
 
 ## Control Groups
@@ -189,10 +187,10 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 ---
 
 ## What is Compose?
-
->"Compose is a tool for defining and running multi-container Docker applications.
->With Compose, you use a YAML file to configure your application’s services.
->Then, with a single command, you create and start all the services from your configuration."
+<!-- .slide: style="text-align: left;"> -->
+"Compose is a tool for defining and running multi-container Docker applications.
+With Compose, you use a YAML file to configure your application’s services.
+Then, with a single command, you create and start all the services from your configuration."<br>
 <font size="6"><a href="https://docs.docker.com/compose/">docs.docker.com/compose</a></font>
 
 ---
