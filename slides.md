@@ -44,7 +44,6 @@ https://www.docker.com/resources/what-container
 
 Ensures a single container cannot consume all<br>
 resources of the host<br>
-<br>
 Implements resource limiting of:-
 - CPU
 - Memory
@@ -54,7 +53,6 @@ Implements resource limiting of:-
 ## Namespaces
 
 Control what a container can see<br>
-<br>
 Used to control:-<br>
 - Hostname within the container
 - Processes that the container can see
