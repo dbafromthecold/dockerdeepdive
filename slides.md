@@ -139,14 +139,22 @@ Connect/disconnect from networks without restarting<br>
 
 ---
 
-?code=assets/code/customimage&lang=bash&title=Building a container image
+<pre><code>
+FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
-@[1](Specifying the base image to build from)
-@[3](Switching to the root user)
-@[5-8](Creating directories)
-@[10](Changing the owner of the directories)
-@[12](Switching to the mssql user)
-@[14](Starting SQL Server)
+USER root
+
+RUN mkdir /var/opt/sqlserver
+RUN mkdir /var/opt/sqlserver/sqldata
+RUN mkdir /var/opt/sqlserver/sqllog
+RUN mkdir /var/opt/sqlserver/sqlbackups
+
+RUN chown -R mssql /var/opt/sqlserver
+
+USER mssql
+
+CMD /opt/mssql/bin/sqlservr
+</pre></code>
 
 ---
 
@@ -156,17 +164,23 @@ Connect/disconnect from networks without restarting<br>
 
 # Docker Compose
 
-?code=assets/code/docker_container_run.sh&lang=bash&title=Running a Container
-
-@[1](Run container in the background)
-@[2](Mapping ports)
-@[3-4](Setting the SA password and accepting the EULA)
-@[5](Enabling the Agent)
-@[6-8](Setting the default directories)
-@[9](Attaching the container to a custom network)
-@[10-13](Mapping the named volumes)
-@[14](Specifying a name for the container)
-@[15](Specifying the image to build the container from)
+<pre><code>
+docker run -d
+--publish 15789:1433
+--env SA_PASSWORD=Testing1122
+--env ACCEPT_EULA=Y
+--env MSSQL_AGENT_ENABLED=True
+--env MSSQL_DATA_DIR=/var/opt/sqlserver/sqldata
+--env MSSQL_LOG_DIR=/var/opt/sqlserver/sqllog
+--env MSSQL_BACKUP_DIR=/var/opt/sqlserver/sqlbackups
+--network sqlserver
+--volume sqlsystem:/var/opt/mssql
+--volume sqldata:/var/opt/sqlserver/sqldata
+--volume sqllog:/var/opt/sqlserver/sqllog
+--volume sqlbackup:/var/opt/sqlserver/sqlbackups
+--name sqlcontainer1
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+</pre></code>
 
 ---
 
@@ -184,9 +198,9 @@ Connect/disconnect from networks without restarting<br>
 
 ## Resources
 
-@size[0.8em](https://github.com/dbafromthecold/DockerDeepDive)<br>
-@size[0.8em](http://tinyurl.com/y3x29t3j/summary-of-my-container-series)<br>
-@size[0.8em](https://github.com/dbafromthecold/SqlServerAndContainersGuide)
+https://github.com/dbafromthecold/DockerDeepDive<br>
+http://tinyurl.com/y3x29t3j/summary-of-my-container-series<br>
+https://github.com/dbafromthecold/SqlServerAndContainersGuide
 
 <p align="center">
 <img src="assets/images/dockerdeepdive_qr_code.png" />
