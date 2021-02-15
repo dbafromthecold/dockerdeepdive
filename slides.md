@@ -5,7 +5,7 @@
 ## Andrew Pruski
 
 ### SQL Server DBA, Microsoft Data Platform MVP, & Certified Kubernetes Administrator
-
+<!-- .slide: style="text-align: left;"> -->
 <a href="https://twitter.com/dbafromthecold">@dbafromthecold</a><br>
 www.dbafromthecold.com<br>
 <a href="https://github.com/dbafromthecold">github.com/dbafromthecold.com</a>
@@ -33,7 +33,7 @@ To provide a deeper knowledge of the Docker platform
 ---
 
 ## Container Isolation
-
+<!-- .slide: style="text-align: left;"> -->
 >Containers isolate software from its environment and ensure that it works uniformly 
 >despite differences for instance between development and staging
 https://www.docker.com/resources/what-container
@@ -41,7 +41,7 @@ https://www.docker.com/resources/what-container
 ---
 
 ## Control Groups
-
+<!-- .slide: style="text-align: left;"> -->
 Ensures a single container cannot consume all<br>
 resources of the host<br>
 Implements resource limiting of:-
@@ -51,7 +51,7 @@ Implements resource limiting of:-
 ---
 
 ## Namespaces
-
+<!-- .slide: style="text-align: left;"> -->
 Control what a container can see<br>
 Used to control:-<br>
 - Hostname within the container
@@ -61,7 +61,7 @@ Used to control:-<br>
 ---
 
 ## File system
-
+<!-- .slide: style="text-align: left;"> -->
 - Containers cannot see the entire host's filesystem<br>
 - They can only see a subset of that filesystem<br>
 - The container root directory is changed upon start up
@@ -77,7 +77,7 @@ Used to control:-<br>
 ---
 
 ## Default networks
-
+<!-- .slide: style="text-align: left;"> -->
 <img src="images/docker_default_networks.png" style="float: right"/>
 
 - bridge<br>
@@ -87,7 +87,7 @@ Used to control:-<br>
 ---
 
 ## Bridge network
-
+<!-- .slide: style="text-align: left;"> -->
 Default network<br>
 Represents _docker0_ network in the host network stack<br>
 Containers communicate by IP address<br>
@@ -96,7 +96,7 @@ Supports port mapping
 ---
 
 ## User defined networks
-
+<!-- .slide: style="text-align: left;"> -->
 Docker provide multiple drivers<br>
 Enables DNS resolution of container names to IP addresses<br>
 Can be connected to more than one network<br>
@@ -113,7 +113,7 @@ Connect/disconnect from networks without restarting<br>
 ---
 
 ## Options for persisting data
-
+<!-- .slide: style="text-align: left;"> -->
 - Bind mounts<br>
 - Data volume containers<br>
 - Named volumes
@@ -129,7 +129,7 @@ Connect/disconnect from networks without restarting<br>
 ---
 
 ## Building your own image
-
+<!-- .slide: style="text-align: left;"> -->
 - Custom images built from a file containing instructions<br>
 - Known as a dockerfile<br>
 - Customise the image to grant permissions to directories<br>
@@ -187,7 +187,7 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 ---
 
 ## What is Compose?
-
+<!-- .slide: style="text-align: left;"> -->
 >Compose is a tool for defining and running multi-container Docker applications.
 >With Compose, you use a YAML file to configure your application’s services.
 >Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose
@@ -199,7 +199,7 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 ---
 
 ## Resources
-
+<!-- .slide: style="text-align: left;"> -->
 https://github.com/dbafromthecold/DockerDeepDive<br>
 http://tinyurl.com/y3x29t3j/summary-of-my-container-series<br>
 https://github.com/dbafromthecold/SqlServerAndContainersGuide
