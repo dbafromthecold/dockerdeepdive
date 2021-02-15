@@ -20,11 +20,13 @@ To provide a deeper knowledge of the Docker platform
 
 ## Agenda
 
+<p align="left">
 - Isolation<br>
 - Networking<br>
 - Persisting data<br>
 - Custom images<br>
 - Docker Compose<br>
+</p>
 
 ---
 
@@ -162,6 +164,10 @@ CMD /opt/mssql/bin/sqlservr
 ---
 
 # Docker Compose
+
+---
+
+## Docker container run
 
 <pre><code data-line-numbers="1|2|3-8|9|10-13|14|15">docker run -d
 --publish 15789:1433
