@@ -139,7 +139,7 @@ Connect/disconnect from networks without restarting<br>
 
 ---
 
-<pre><code>FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+<pre><code data-line-numbers="1|3|5-8|10|11|12|14">FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 USER root
 
@@ -163,7 +163,7 @@ CMD /opt/mssql/bin/sqlservr
 
 # Docker Compose
 
-<pre><code>docker run -d
+<pre><code data-line-numbers="1|2|3-8|9|10-13|14|15">docker run -d
 --publish 15789:1433
 --env SA_PASSWORD=Testing1122
 --env ACCEPT_EULA=Y
