@@ -34,7 +34,9 @@ To provide a deeper knowledge of the Docker platform
 
 ## Container Isolation
 
-@quote[Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging](https://www.docker.com/resources/what-container)
+>Containers isolate software from its environment and ensure that it works uniformly 
+>despite differences for instance between development and staging
+(https://www.docker.com/resources/what-container)
 
 ---
 
@@ -97,10 +99,10 @@ Supports port mapping
 
 ## User defined networks
 
-@size[0.8em](Docker provide multiple drivers<br>)
-@size[0.8em](Enables DNS resolution of container names to IP addresses<br>)
-@size[0.8em](Can be connected to more than one network<br>)
-@size[0.8em](Connect/disconnect from networks without restarting<br>)
+Docker provide multiple drivers<br>
+Enables DNS resolution of container names to IP addresses<br>
+Can be connected to more than one network<br>
+Connect/disconnect from networks without restarting<br>
 
 ---
 
@@ -135,7 +137,9 @@ Supports port mapping
 - Customise the image to grant permissions to directories<br>
 - Add databases to SQL Server, ready to go when container starts<br>
 
----?code=assets/code/customimage&lang=bash&title=Building a container image
+---
+
+?code=assets/code/customimage&lang=bash&title=Building a container image
 
 @[1](Specifying the base image to build from)
 @[3](Switching to the root user)
@@ -152,7 +156,7 @@ Supports port mapping
 
 # Docker Compose
 
----?code=assets/code/docker_container_run.sh&lang=bash&title=Running a Container
+?code=assets/code/docker_container_run.sh&lang=bash&title=Running a Container
 
 @[1](Run container in the background)
 @[2](Mapping ports)
@@ -168,7 +172,9 @@ Supports port mapping
 
 ## What is Compose?
 
-@quote[Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose)
+>Compose is a tool for defining and running multi-container Docker applications. 
+>With Compose, you use a YAML file to configure your application’s services. 
+>Then, with a single command, you create and start all the services from your configuration.](docs.docker.com/compose
 
 ---
 
