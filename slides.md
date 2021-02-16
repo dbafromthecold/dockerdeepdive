@@ -91,7 +91,7 @@ Used to control:-<br>
 ## Bridge network
 <!-- .slide: style="text-align: left;"> -->
 - Default network<br>
-- Represents _docker0_ network in the host network stack<br>
+- Represents _docker0_ network<br>
 - Containers communicate by IP address<br>
 - Supports port mapping 
 
@@ -100,7 +100,7 @@ Used to control:-<br>
 ## User defined networks
 <!-- .slide: style="text-align: left;"> -->
 - Docker provide multiple drivers<br>
-- Enables DNS resolution of container names to IP addresses<br>
+- DNS resolution of container names to IP addresses<br>
 - Can be connected to more than one network<br>
 - Connect/disconnect from networks without restarting<br>
 
