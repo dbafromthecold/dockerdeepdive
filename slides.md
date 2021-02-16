@@ -6,9 +6,10 @@
 
 ### SQL Server DBA, Microsoft Data Platform MVP, & Certified Kubernetes Administrator
 <!-- .slide: style="text-align: left;"> -->
-<a href="https://twitter.com/dbafromthecold">@dbafromthecold</a><br>
-www.dbafromthecold.com<br>
-<a href="https://github.com/dbafromthecold">github.com/dbafromthecold.com</a>
+<i class="fab fa-twitter"></i><a href="https://twitter.com/dbafromthecold">  @dbafromthecold</a><br>
+<i class="fas fa-envelope"></i>  dbafromthecold@gmail.com<br>
+<i class="fab fa-wordpress"></i>  www.dbafromthecold.com<br>
+<i class="fab fa-github"></i><a href="https://github.com/dbafromthecold">  github.com/dbafromthecold.com</a
 
 ---
 
@@ -202,9 +203,11 @@ Then, with a single command, you create and start all the services from your con
 
 ## Resources
 <!-- .slide: style="text-align: left;"> -->
+<font size="6">
 https://github.com/dbafromthecold/DockerDeepDive<br>
 http://tinyurl.com/y3x29t3j/summary-of-my-container-series<br>
 https://github.com/dbafromthecold/SqlServerAndContainersGuide
+</font>
 
 <p align="center">
 <img src="images/dockerdeepdive_qr_code.png" />
