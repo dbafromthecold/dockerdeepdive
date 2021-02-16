@@ -66,7 +66,7 @@ Used to control:-<br>
 <!-- .slide: style="text-align: left;"> -->
 - Containers cannot see the entire host's filesystem<br>
 - They can only see a subset of that filesystem<br>
-- The container root directory is changed upon start up
+- The container root directory is changed
 
 ---
 
@@ -132,10 +132,10 @@ Used to control:-<br>
 
 ## Building your own image
 <!-- .slide: style="text-align: left;"> -->
-- Custom images built from a file containing instructions<br>
+- Custom images built from a file<br>
 - Known as a dockerfile<br>
-- Customise the image to grant permissions to directories<br>
-- Add databases to SQL Server, ready to go when container starts<br>
+- Customise the image to grant permissions<br>
+- Add databases to SQL Server<br>
 
 ---
 
