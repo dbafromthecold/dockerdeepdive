@@ -9,7 +9,7 @@
 <i class="fab fa-twitter"></i><a href="https://twitter.com/dbafromthecold">  @dbafromthecold</a><br>
 <i class="fas fa-envelope"></i>  dbafromthecold@gmail.com<br>
 <i class="fab fa-wordpress"></i>  www.dbafromthecold.com<br>
-<i class="fab fa-github"></i><a href="https://github.com/dbafromthecold">  github.com/dbafromthecold.com</a
+<i class="fab fa-github"></i><a href="https://github.com/dbafromthecold">  github.com/dbafromthecold.com</a>
 
 ---
 
@@ -204,9 +204,9 @@ Then, with a single command, you create and start all the services from your con
 ## Resources
 <!-- .slide: style="text-align: left;"> -->
 <font size="6">
-https://github.com/dbafromthecold/DockerDeepDive<br>
-http://tinyurl.com/y3x29t3j/summary-of-my-container-series<br>
-https://github.com/dbafromthecold/SqlServerAndContainersGuide
+<a href="https://github.com/dbafromthecold/DockerDeepDive">https://github.com/dbafromthecold/DockerDeepDive</a><br>
+<a href="http://tinyurl.com/y3x29t3j/summary-of-my-container-series">http://tinyurl.com/y3x29t3j/summary-of-my-container-series</a><br>
+<a href="https://github.com/dbafromthecold/SqlServerAndContainersGuide">https://github.com/dbafromthecold/SqlServerAndContainersGuide</a>
 </font>
 
 <p align="center">
