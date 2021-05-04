@@ -39,7 +39,7 @@ az network nsg rule create --name SSH --nsg-name DockerNsg --priority 1000 `
 --protocol TCP --direction Inbound
 
 
-# create puglic IP
+# create public IP
 az network public-ip create --name PIP-$hostname --resource-group $ResourceGroup --dns-name $DNSName
 
 
