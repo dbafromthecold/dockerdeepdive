@@ -1,4 +1,4 @@
-# Docker Deep Dive
+<img src="images/dataplatformgeeks_intro.png"/>
 
 ---
 
