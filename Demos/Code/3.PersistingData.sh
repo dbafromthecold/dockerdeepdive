@@ -230,14 +230,16 @@ docker container rm $(docker container ls -aq) -f && docker volume prune -f
 
 # spin up a data volume container
 docker container create --name datastore \
---volume /var/opt/mssql \
+--volume /var/opt/mssql/data \
 --volume /var/opt/sqlserver/data \
 --volume /var/opt/sqlserver/log \
 --volume /var/opt/sqlserver/backups \
-custom_ubuntu
+ghcr.io/dbafromthecold/dockerdeepdive:custom_ubuntu
 
 
-ubuntu:18.04
+
+# view dockerfile of custom_ubuntu image
+cat ~/git/dockerdeepdive/Demos/CustomImages/Custom_Ubuntu/dockerfile
 
 
 
@@ -251,10 +253,6 @@ docker volume ls
 
 
 
-docker volume ls --format "table {{.Name}}"
-
-
-
 # spin up a sql container with volume mapped from data container
 docker container run -d \
 --publish 15789:1433 \
@@ -265,7 +263,7 @@ docker container run -d \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
 --env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backups \
 --name sqlcontainer5 \
-ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-root
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
@@ -294,8 +292,13 @@ docker container rm sqlcontainer5 -f
 
 
 
-# confirm container is gone
+# confirm container is gone but datastore container is still there
 docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
+
+
+
+# confirm volumes are still there
+docker volume ls
 
 
 
@@ -309,7 +312,7 @@ docker container run -d \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
 --env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backups \
 --name sqlcontainer6 \
-ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-root
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
