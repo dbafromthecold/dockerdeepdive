@@ -115,8 +115,14 @@ docker port sqlcontainer3
 docker port sqlcontainer4
 
 
+
 # now connect to SQL in a container from the host
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT @@VERSION AS [Version];"
+
+
+
+# remove the containers
+docker rm $(docker ps -aq) -f
 
 
 

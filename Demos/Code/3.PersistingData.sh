@@ -213,6 +213,11 @@ mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
 
+# confirm that container is running
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
+
+
+
 # confirm database is there
 mssql-cli -S localhost,16120 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
 
@@ -225,6 +230,7 @@ docker container rm $(docker container ls -aq) -f && docker volume prune -f
 
 # spin up a data volume container
 docker container create --name datastore \
+--volume /var/opt/mssql \
 --volume /var/opt/sqlserver/data \
 --volume /var/opt/sqlserver/log \
 --volume /var/opt/sqlserver/backups \
@@ -271,8 +277,47 @@ mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatab
 
 
 
-# view the database files
-mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "USE [testdatabase3]; EXEC sp_helpfile;"
+# confirm database is there
+mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT name FROM sys.databases"
+
+
+
+# check the database file location
+mssql-cli -S localhost,16110 -U sa -P Testing1122 -Q "USE [testdatabase3]; EXEC sp_helpfile;"
+
+
+
+# blow away container
+docker container rm $(docker container ls -aq)
+
+
+
+# confirm container is gone
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
+
+
+
+# spin up another container
+docker container run -d \
+--publish 15789:1433 \
+--volumes-from datastore \
+--env ACCEPT_EULA=Y \
+--env SA_PASSWORD=Testing1122 \
+--env MSSQL_DATA_DIR=/var/opt/sqlserver/data \
+--env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
+--env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup \
+--name sqlcontainer5 \
+mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+
+
+
+# confirm container is running
+docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
+
+
+
+# confirm database is there
+mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT name FROM sys.databases"
 
 
 

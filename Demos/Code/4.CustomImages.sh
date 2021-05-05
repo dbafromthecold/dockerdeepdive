@@ -54,7 +54,7 @@ docker container run -d \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver/sqldata \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/sqllog \
 --env MSSQL_BACKUP_DIR=/var/opt/sqlserver/sqlbackups \
---env SA_PASSWORD=Testing1122 \
+--env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer1 \
 customimage1
 

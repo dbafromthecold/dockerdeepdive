@@ -15,6 +15,11 @@ cd ~/git/dockerdeepdive/Demos/Compose
 
 
 
+# list files in directory
+ls -al
+
+
+
 # have a look at the dockerfile
 cat dockerfile
 
@@ -74,9 +79,11 @@ docker container ls -a
 mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "CREATE DATABASE [testdatabase];"
 
 
+
 # check the database files
-docker exec compose_sqlserver1_1 bash -c "ls -al /var/opt/sqlserver/sqldata"
-docker exec compose_sqlserver1_1 bash -c "ls -al /var/opt/sqlserver/sqllog"
+docker exec compose_sqlserver1_1 ls -al /var/opt/sqlserver/sqldata
+docker exec compose_sqlserver1_1 ls -al /var/opt/sqlserver/sqllog
+
 
 
 # check the database has been created

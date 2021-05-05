@@ -72,16 +72,6 @@ docker exec sqlcontainer1 hostname
 
 
 
-# get user details
-docker exec sqlcontainer1 id
-
-
-
-# run exec again changing the user to root
-docker exec -u 0 sqlcontainer1 id
-
-
-
 # list processes within the container
 docker exec sqlcontainer1 ps aux
 
