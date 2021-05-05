@@ -234,6 +234,9 @@ docker container create --name datastore \
 --volume /var/opt/sqlserver/data \
 --volume /var/opt/sqlserver/log \
 --volume /var/opt/sqlserver/backups \
+custom_ubuntu
+
+
 ubuntu:18.04
 
 
@@ -248,6 +251,10 @@ docker volume ls
 
 
 
+docker volume ls --format "table {{.Name}}"
+
+
+
 # spin up a sql container with volume mapped from data container
 docker container run -d \
 --publish 15789:1433 \
@@ -256,19 +263,14 @@ docker container run -d \
 --env SA_PASSWORD=Testing1122 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver/data \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
---env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup \
+--env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backups \
 --name sqlcontainer5 \
-mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-root
 
 
 
 # confirm container is running
 docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\t{{.Ports}}"
-
-
-
-# change the owner of the sqlserver directory
-docker exec -u 0 sqlcontainer5 chown -R mssql /var/opt/sqlserver
 
 
 
@@ -283,12 +285,12 @@ mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT name FROM sys.datab
 
 
 # check the database file location
-mssql-cli -S localhost,16110 -U sa -P Testing1122 -Q "USE [testdatabase3]; EXEC sp_helpfile;"
+mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "USE [testdatabase3]; EXEC sp_helpfile;"
 
 
 
 # blow away container
-docker container rm $(docker container ls -aq)
+docker container rm sqlcontainer5 -f
 
 
 
@@ -305,9 +307,9 @@ docker container run -d \
 --env SA_PASSWORD=Testing1122 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver/data \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
---env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup \
+--env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backups \
 --name sqlcontainer6 \
-mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-root
 
 
 

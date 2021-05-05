@@ -1,0 +1,14 @@
+FROM ubuntu-18.04
+
+RUN mkdir /var/opt/mssql
+RUN mkdir /var/opt/mssql/data
+
+RUN mkdir /var/opt/sqlserver
+RUN mkdir /var/opt/sqlserver/data
+RUN mkdir /var/opt/sqlserver/log
+RUN mkdir /var/opt/sqlserver/backups
+
+RUN useradd -u 10001 mssql
+
+RUN chown -R mssql /var/opt/mssql
+RUN chown -R mssql /var/opt/sqlserver
