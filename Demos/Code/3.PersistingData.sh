@@ -45,6 +45,7 @@ mssql-cli -S localhost,15999 -U sa -P Testing1122 \
     (NAME='testdatabase_log',FILENAME='/var/opt/sqlserver/testdatabase_log.ldf');"
 
 
+
 # view the directory in the container
 docker exec -u 0 sqlcontainer1 ls -al /var/opt/
 
