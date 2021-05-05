@@ -1,4 +1,4 @@
-FROM ubuntu-18.04
+FROM ubuntu:18.04
 
 RUN mkdir /var/opt/mssql
 RUN mkdir /var/opt/mssql/data
