@@ -299,14 +299,14 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 # spin up another container
 docker container run -d \
---publish 15789:1433 \
+--publish 15799:1433 \
 --volumes-from datastore \
 --env ACCEPT_EULA=Y \
 --env SA_PASSWORD=Testing1122 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver/data \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver/log \
 --env MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup \
---name sqlcontainer5 \
+--name sqlcontainer6 \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
@@ -317,7 +317,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # confirm database is there
-mssql-cli -S localhost,15789 -U sa -P Testing1122 -Q "SELECT name FROM sys.databases"
+mssql-cli -S localhost,15799 -U sa -P Testing1122 -Q "SELECT name FROM sys.databases"
 
 
 
