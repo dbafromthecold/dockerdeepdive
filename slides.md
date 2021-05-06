@@ -1,4 +1,4 @@
-<img src="images/dataplatformgeeks_intro.png"/>
+# A deep dive into Docker
 
 ---
 
