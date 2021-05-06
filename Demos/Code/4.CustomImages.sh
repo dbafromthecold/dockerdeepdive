@@ -66,7 +66,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # check permissions on folders
-docker container exec -it sqlcontainer1 ls -al /var/opt/sqlserver
+docker container exec sqlcontainer1 ls -al /var/opt/sqlserver
 
 
 
