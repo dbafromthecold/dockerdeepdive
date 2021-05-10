@@ -129,13 +129,15 @@ docker image rm customimage1
 
 
 
+# ok, let's build a SQL image from scratch!
 # let's build another image
-cd ~/git/DockerDeepDive/Demos/CustomImages/Image2
+cd ~/git/dockerdeepdive/Demos/CustomImages/Image2
 
 
 
 # list files in directory
 ls -al
+
 
 
 # have a look at the dockerfile
@@ -160,6 +162,12 @@ docker image ls
 
 # inspect the image
 docker image inspect customimage2
+
+
+
+
+# view the history of the image
+docker history customimage2 --format {{.CreatedBy}} --no-trunc
 
 
 
