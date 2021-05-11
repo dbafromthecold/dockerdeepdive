@@ -64,6 +64,16 @@ cat $CPUCGROUP/cpu.cfs_quota_us
 
 
 
+# set CPU limit on the fly - thanks Anthony!
+docker update sqlcontainer1 --cpus .5
+
+
+
+
+# show restricted CPU limit
+cat $CPUCGROUP/cpu.cfs_quota_us
+
+
 # view hostname of Docker host
 hostname
 
