@@ -6,6 +6,7 @@ LABEL maintainer="dbafromthecold@gmail.com"
 RUN useradd -u 10001 mssql
 
 # installing SQL Server
+# https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15
 RUN apt-get update && apt-get install -y wget software-properties-common apt-transport-https
 RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list)"

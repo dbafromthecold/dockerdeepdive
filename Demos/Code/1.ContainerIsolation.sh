@@ -65,7 +65,7 @@ cat $CPUCGROUP/cpu.cfs_quota_us
 
 
 # set CPU limit on the fly - thanks Anthony!
-docker update sqlcontainer1 --cpus .5
+docker update sqlcontainer1 --cpus 2
 
 
 
@@ -274,7 +274,7 @@ expr $MEMORYLIMIT / 1024 / 1024
 
 
 
-# show unrestricted CPU limit
+# show CPU limit
 cat /sys/fs/cgroup/cpu,cpuacct/sqlserver/cpu.cfs_quota_us
 
 
