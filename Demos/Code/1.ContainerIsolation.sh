@@ -69,9 +69,9 @@ docker update sqlcontainer1 --cpus .5
 
 
 
-
 # show restricted CPU limit
 cat $CPUCGROUP/cpu.cfs_quota_us
+
 
 
 # view hostname of Docker host
@@ -187,6 +187,11 @@ ls ~/sqlserver
 
 
 
+# let's add a file to that root directoy
+touch ~/sqlserver/HI_DBAFROMTHECOLD
+
+
+
 # let's start up that container again
 docker start sqlcontainer3
 
@@ -217,9 +222,14 @@ tmux
 
 
 
-
-# spin up the container
+# spin up the container using Liz Rice's containers from scratch code...
+# https://www.youtube.com/watch?v=_TsSmSu57Zo
 sudo go run main.go run /bin/bash
+
+
+
+# check the root directory
+ls /
 
 
 
@@ -228,7 +238,7 @@ hostname
 
 
 
-# add the urandom file
+# add the urandom file - thanks Mark!
 mknod -m 444 /dev/urandom c 1 9
 
 
