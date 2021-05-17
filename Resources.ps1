@@ -21,7 +21,7 @@ https://dbafromthecold.github.io/dockerdeepdive/
 https://dbafromthecold.com/2017/03/15/summary-of-my-container-series/
 
 
-# The SQL Server & Containers Guide on Githun
+# The SQL Server & Containers Guide on Github
 https://github.com/dbafromthecold/SqlServerAndContainersGuide
 
 
