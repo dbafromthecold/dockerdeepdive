@@ -94,6 +94,30 @@ ps aux | grep mssql
 
 
 
+# grab the pid
+pid=$(sudo lsns | grep mssql | awk '!visited[$4]++ {print $4}') && echo $pid
+
+
+
+# enter the namespaces
+sudo nsenter -t $pid --pid --uts --mount
+
+
+
+# check the hostname
+hostname
+
+
+
+# check the processes running
+ps aux
+
+
+# exit namespaces
+exit
+
+
+
 # let's run another container from a custom image which runs SQL as root
 docker container run -d \
 --publish 15799:1433 \
