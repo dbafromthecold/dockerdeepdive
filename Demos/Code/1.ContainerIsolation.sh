@@ -74,6 +74,12 @@ cat $CPUCGROUP/cpu.cfs_quota_us
 
 
 
+
+# view namespaces created
+sudo lsns | grep mssql
+
+
+
 # view hostname of Docker host
 hostname
 
@@ -111,6 +117,7 @@ hostname
 
 # check the processes running
 ps aux
+
 
 
 # exit namespaces

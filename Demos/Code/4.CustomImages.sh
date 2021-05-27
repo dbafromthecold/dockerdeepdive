@@ -194,4 +194,4 @@ mssql-cli -S localhost,15800 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.dat
 
 # clean up
 docker rm $(docker container ls -aq) -f
-#docker image rm customimage2
+docker image rm customimage2
