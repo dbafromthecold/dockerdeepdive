@@ -2,6 +2,10 @@
 
 ---
 
+<img src="images/data_anz/data_anz_slide1.png"/>
+
+---
+
 ## Andrew Pruski
 
 ### SQL Server DBA, Microsoft Data Platform MVP, & Certified Kubernetes Administrator
