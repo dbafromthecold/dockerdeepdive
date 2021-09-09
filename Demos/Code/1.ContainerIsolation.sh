@@ -34,7 +34,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # grab the container ID
-CONTAINERID=$(docker ps -q) && echo $CONTAINERID
+CONTAINERID=$(docker ps -aq) && echo $CONTAINERID
 
 
 
@@ -271,6 +271,11 @@ hostname
 
 # add the urandom file - thanks Mark!
 mknod -m 444 /dev/urandom c 1 9
+
+
+
+# confirm file is there
+ls /dev
 
 
 
