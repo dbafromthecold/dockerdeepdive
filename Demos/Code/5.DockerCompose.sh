@@ -13,7 +13,7 @@
 
 
 # have a look at this container run statement!
-docker run -d \
+docker container run -d \
 --publish 15789:1433 \
 --env SA_PASSWORD=Testing1122 \
 --env ACCEPT_EULA=Y \

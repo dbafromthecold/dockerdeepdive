@@ -175,10 +175,10 @@ docker history customimage2 --format {{.CreatedBy}} --no-trunc
 
 # run container from custom image
 docker container run -d \
---publish 15800:1433 \
+--publish 15802:1433 \
 --env MSSQL_SA_PASSWORD=Testing1122 \
---name sqlcontainer3 \
-customimage2
+--name sqlcontainer5 \
+customimage3
 
 
 
