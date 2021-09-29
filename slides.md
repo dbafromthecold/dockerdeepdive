@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="images/futuredatadrive/futuredatadrive_into.png" />
+<img src="images/futuredatadriven/futuredatadriven_intro.png" />
 </p>
 
 ---
@@ -223,5 +223,5 @@ Then, with a single command, you create and start all the services from your con
 ---
 
 <p align="center">
-<img src="images/futuredatadrive/futuredatadrive_feedback.png" />
+<img src="images/futuredatadriven/futuredatadriven_feedback.png" />
 </p>
