@@ -178,7 +178,7 @@ docker container run -d \
 --publish 15802:1433 \
 --env MSSQL_SA_PASSWORD=Testing1122 \
 --name sqlcontainer5 \
-customimage3
+customimage2
 
 
 
