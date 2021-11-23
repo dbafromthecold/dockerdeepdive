@@ -1,10 +1,3 @@
-
-<p align="center">
-<img src="images/futuredatadriven/futuredatadriven_intro.png" />
-</p>
-
----
-
 # A deep dive into Docker
 
 ---
@@ -218,10 +211,4 @@ Then, with a single command, you create and start all the services from your con
 
 <p align="center">
 <img src="images/dockerdeepdive_qr_code.png" />
-</p>
-
----
-
-<p align="center">
-<img src="images/futuredatadriven/futuredatadriven_feedback.png" />
 </p>
