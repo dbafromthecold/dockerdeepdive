@@ -188,7 +188,7 @@ docker container ls -a --format "table {{.Names }}\t{{ .Image }}\t{{ .Status }}\
 
 
 # confirm database is there
-mssql-cli -S localhost,15800 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
+mssql-cli -S localhost,15802 -U sa -P Testing1122 -Q "SELECT [name] FROM sys.databases;"
 
 
 
