@@ -169,7 +169,7 @@ CMD /opt/mssql/bin/sqlservr
 
 ## Docker container run
 
-<pre><code data-line-numbers="1|2|3-8|9|10-13|14|15">docker run -d
+<pre><code data-line-numbers="1|2|3-8|9|10-13|14|15">docker container run -d
 --publish 15789:1433
 --env SA_PASSWORD=Testing1122
 --env ACCEPT_EULA=Y
