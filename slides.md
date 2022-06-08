@@ -207,7 +207,6 @@ Then, with a single command, you create and start all the services from your con
 <a href="https://github.com/dbafromthecold/DockerDeepDive">https://github.com/dbafromthecold/DockerDeepDive</a><br>
 <a href="http://tinyurl.com/y3x29t3j/summary-of-my-container-series">http://tinyurl.com/y3x29t3j/summary-of-my-container-series</a><br>
 <a href="https://github.com/dbafromthecold/SqlServerAndContainersGuide">https://github.com/dbafromthecold/SqlServerAndContainersGuide</a>
-<a href=" https://evals.datagrillen.com">https://evals.datagrillen.com/</a>
 </font>
 
 <p align="center">
