@@ -106,7 +106,7 @@ pid=$(sudo lsns | grep mssql | awk '!visited[$4]++ {print $4}') && echo $pid
 
 
 # enter the namespaces
-sudo nsenter -t $pid --pid --uts --mount
+sudo nsenter -t $pid --pid --uts --mount --net --ipc /bin/bash
 
 
 
@@ -294,7 +294,7 @@ ps aux | grep mssql
 
 
 
-# have a look at the memory and cpu control groups location
+# have a look at the memory and cpu control groups location (notice sqlserver folder)
 ls /sys/fs/cgroup/memory
 ls /sys/fs/cgroup/cpu,cpuacct
 
