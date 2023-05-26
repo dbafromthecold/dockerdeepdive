@@ -33,7 +33,7 @@ docker image ls | grep customimage1
 
 
 # create named volumes
-docker volume create sqlsystem 
+docker volume create sqlsystem
 docker volume create sqldata 
 docker volume create sqllog 
 docker volume create sqlbackups
