@@ -4,7 +4,11 @@
 
 ## Andrew Pruski
 
-### SQL Server DBA, Microsoft Data Platform MVP, & Certified Kubernetes Administrator
+<img src="images/apruski.jpg" style="float: right"/>
+
+### Field Solutions Architect
+### Microsoft Data Platform MVP
+
 <!-- .slide: style="text-align: left;"> -->
 <i class="fab fa-twitter"></i><a href="https://twitter.com/dbafromthecold">  @dbafromthecold</a><br>
 <i class="fas fa-envelope"></i>  dbafromthecold@gmail.com<br>
@@ -205,8 +209,6 @@ Then, with a single command, you create and start all the services from your con
 <!-- .slide: style="text-align: left;"> -->
 <font size="6">
 <a href="https://github.com/dbafromthecold/DockerDeepDive">https://github.com/dbafromthecold/DockerDeepDive</a><br>
-<a href="http://tinyurl.com/y3x29t3j/summary-of-my-container-series">http://tinyurl.com/y3x29t3j/summary-of-my-container-series</a><br>
-<a href="https://github.com/dbafromthecold/SqlServerAndContainersGuide">https://github.com/dbafromthecold/SqlServerAndContainersGuide</a>
 </font>
 
 <p align="center">
