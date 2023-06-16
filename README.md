@@ -31,3 +31,7 @@ https://www.youtube.com/watch?v=_TsSmSu57Zo
 
 # Installing SQL Server on Linux guide
 https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15
+
+
+# Running SQL Server in a container with SqlCmd
+https://dbafromthecold.com/2023/05/19/running-sql-server-in-a-container-with-sqlcmd/

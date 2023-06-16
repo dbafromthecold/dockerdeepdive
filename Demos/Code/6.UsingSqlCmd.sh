@@ -45,6 +45,7 @@ printenv | less
 
 
 
+
 # run a container from another image
 sqlcmd create mssql --tag 2019-CU5-ubuntu-18.04
 
