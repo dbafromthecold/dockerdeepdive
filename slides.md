@@ -7,7 +7,10 @@
 <img src="images/apruski.jpg" style="float: right"/>
 
 ### Field Solutions Architect
-### Microsoft Data Platform MVP
+### Field Solutions Architect
+#### Microsoft Data Platform MVP 
+#### Docker Captain
+#### VMware vExpert
 
 <!-- .slide: style="text-align: left;"> -->
 <i class="fab fa-twitter"></i><a href="https://twitter.com/dbafromthecold">  @dbafromthecold</a><br>
@@ -145,20 +148,19 @@ Used to control:-<br>
 
 ## Dockerfile
 
-<pre><code data-line-numbers="1|3|5-8|10|12|14">FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+<pre><code data-line-numbers="1|3|5-7|9|11|13">FROM postgres:14
 
 USER root
 
-RUN mkdir /var/opt/sqlserver
-RUN mkdir /var/opt/sqlserver/sqldata
-RUN mkdir /var/opt/sqlserver/sqllog
-RUN mkdir /var/opt/sqlserver/sqlbackups
+RUN mkdir -p /var/lib/postgresql/data
+RUN mkdir -p /var/log/postgresql
+RUN mkdir -p /var/lib/postgresql/backups
 
-RUN chown -R mssql /var/opt/sqlserver
+RUN chown -R postgres:postgres /var/lib/postgresql /var/log/postgresql /var/lib/postgresql/backups
 
-USER mssql
+USER postgres
 
-CMD /opt/mssql/bin/sqlservr
+CMD ["postgres"]
 </pre></code>
 
 ---
@@ -173,21 +175,16 @@ CMD /opt/mssql/bin/sqlservr
 
 ## Docker container run
 
-<pre><code data-line-numbers="1|2|3-8|9|10-13|14|15">docker container run -d
---publish 15789:1433
---env SA_PASSWORD=Testing1122
---env ACCEPT_EULA=Y
---env MSSQL_AGENT_ENABLED=True
---env MSSQL_DATA_DIR=/var/opt/sqlserver/sqldata
---env MSSQL_LOG_DIR=/var/opt/sqlserver/sqllog
---env MSSQL_BACKUP_DIR=/var/opt/sqlserver/sqlbackups
---network sqlserver
---volume sqlsystem:/var/opt/mssql
---volume sqldata:/var/opt/sqlserver/sqldata
---volume sqllog:/var/opt/sqlserver/sqllog
---volume sqlbackup:/var/opt/sqlserver/sqlbackups
---name sqlcontainer1
-mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+<pre><code data-line-numbers="1|2|3-4|5-7|8|9|10">docker container run -d \
+--publish 15789:5432 \
+--env POSTGRES_PASSWORD=Testing1122 \
+--env POSTGRES_DB=my_database \
+--volume pgdata:/var/lib/postgresql/data \
+--volume pglog:/var/log/postgresql \
+--volume pgbackup:/var/lib/postgresql/backups \
+--network sqlserver \
+--name postgrescontainer1 \
+postgres:14
 </pre></code>
 
 ---
