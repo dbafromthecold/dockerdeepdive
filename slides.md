@@ -32,10 +32,20 @@ To provide a deeper knowledge of the Docker platform
 - Persisting data<br>
 - Custom images<br>
 - Docker Compose<br>
+- High Availability
 
 ---
 
 # Isolation
+
+---
+
+## There are no containers!
+<!-- .slide: style="text-align: left;"> -->
+
+<p align="center">
+  <img src="images/there-is-no-spoon.gif" />
+</p>
 
 ---
 
