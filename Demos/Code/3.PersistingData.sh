@@ -27,7 +27,7 @@ docker container run -d -p 16110:1433 \
 --volume mssqlsystem:/var/opt/mssql \
 --volume mssqluser:/var/opt/sqlserver \
 --env ACCEPT_EULA=Y \
---env SA_PASSWORD=Testing1122 \
+--env MSSQL_SA_PASSWORD=Testing1122 \
 --env MSSQL_DATA_DIR=/var/opt/sqlserver \
 --env MSSQL_LOG_DIR=/var/opt/sqlserver \
 --name sqlcontainer3 \
