@@ -212,7 +212,7 @@ Then, with a single command, you create and start all the services from your con
 ---
 
 ## Docker Swarm
-
+<!-- .slide: style="text-align: left;"> -->
 - A "swarm" of Docker engines
 - No additional orchestration software required
 - Built-in resilience for containers
@@ -221,7 +221,7 @@ Then, with a single command, you create and start all the services from your con
 ---
 
 ## Docker Swarm vs Kubernetes
-
+<!-- .slide: style="text-align: left;"> -->
 - Simpler setup
 - Tighter Docker integration
 - Lightweight
