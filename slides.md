@@ -207,6 +207,30 @@ Then, with a single command, you create and start all the services from your con
 
 ---
 
+# High Availability
+
+---
+
+## Docker Swarm
+
+- A "swarm" of Docker engines
+- No additional orchestration software required
+- Built-in resilience for containers
+- Declarative model
+
+---
+
+## Docker Swarm vs Kubernetes
+
+- Simpler setup
+- Tighter Docker integration
+- Lightweight
+- Limited ecosystem
+- Lower community adoption
+- Weaker multi-cloud/hybrid support
+
+---
+
 ## Resources
 <!-- .slide: style="text-align: left;"> -->
 <font size="6">
