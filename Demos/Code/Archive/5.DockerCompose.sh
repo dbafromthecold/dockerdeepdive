@@ -30,7 +30,6 @@ docker container run -d \
 mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
 
 
-
 # navigate to the compose files
 cd ~/git/dockerdeepdive/Demos/Compose
 
@@ -138,5 +137,5 @@ docker image ls
 
 
 # clean up
-docker compose down -v
+docker volume prune -f
 docker image rm compose_sqlserver1
