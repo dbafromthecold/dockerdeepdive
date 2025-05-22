@@ -68,6 +68,33 @@ docker rm $(docker ps -aq) -f
 
 
 
+# and spin them up again, this time adding entries for each in the hosts file
+docker container run -d \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--add-host=sqlcontainer2:172.17.0.3 \
+--name sqlcontainer1 \
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
+
+docker container run -d \
+--env ACCEPT_EULA=Y \
+--env MSSQL_SA_PASSWORD=Testing1122 \
+--add-host=sqlcontainer1:172.17.0.2 \
+--name sqlcontainer2 \
+ghcr.io/dbafromthecold/dockerdeepdive:customsql2019-tools
+
+
+
+# ping one of the containers using the container name
+docker exec sqlcontainer1 ping sqlcontainer2 -c 4
+
+
+
+# and let's blow those containers away
+docker rm $(docker ps -aq) -f
+
+
+
 # create custom bridge network
 docker network create sqlserver
 

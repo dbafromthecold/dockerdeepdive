@@ -64,7 +64,7 @@ cat $CPUCGROUP/cpu.cfs_quota_us
 
 
 
-# set CPU limit on the fly - thanks Anthony!
+# set CPU limit on the fly
 docker update sqlcontainer1 --cpus 2
 
 
@@ -155,7 +155,6 @@ ls -al /var/opt/mssql/data
 
 
 # get container root location
-FILES=$(docker inspect sqlcontainer1 --format '{{ .GraphDriver.Data.MergedDir }}') && echo $FILES
 
 
 

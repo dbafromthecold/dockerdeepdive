@@ -140,3 +140,4 @@ docker image ls
 # clean up
 docker compose down -v
 docker image rm compose_sqlserver1
+docker volume rm $(docker volume ls -q) -f
